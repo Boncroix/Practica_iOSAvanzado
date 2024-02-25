@@ -1,13 +1,13 @@
 //
-//  SplashViewController.swift
+//  HomeVC.swift
 //  DragonBallAPP
 //
-//  Created by Jose Bueno Cruz on 23/2/24.
+//  Created by Jose Bueno Cruz on 24/2/24.
 //
 
 import UIKit
 
-class SplashVC: UIViewController {
+final class HomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
