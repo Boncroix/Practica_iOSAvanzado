@@ -8,7 +8,7 @@
 import Foundation
 
 protocol LoginNetworkProtocol {
-    func login (user: String,
+    func login (email: String,
                 password: String,
                 onSucces: @escaping (String?) -> Void,
                 onError: @escaping (NetworkError) -> Void)
@@ -16,7 +16,16 @@ protocol LoginNetworkProtocol {
 
 final class LoginNetwork: LoginNetworkProtocol {
     
-    func login(user: String,
+    private var secureData: SecureDataKeychainProtocol
+    
+    
+    //MARK: - Inits
+    init(secureData: SecureDataKeychainProtocol = SecureDataKeychain()) {
+        self.secureData = secureData
+    }
+    
+    //MARK: - Login
+    func login(email: String,
                password: String,
                onSucces: @escaping (String?) -> Void,
                onError: @escaping (NetworkError) -> Void)
@@ -26,7 +35,7 @@ final class LoginNetwork: LoginNetworkProtocol {
             return
         }
         
-        let loginString = String(format: "%@:%@", user, password)
+        let loginString = String(format: "%@:%@", email, password)
         guard let loginData = loginString.data(using: .utf8) else {
             onError(.dataFormatting)
             return
@@ -37,7 +46,7 @@ final class LoginNetwork: LoginNetworkProtocol {
         urlRequest.httpMethod = HTTPMethods.post
         urlRequest.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
         
-        let task = URLSession.shared.dataTask(with: urlRequest) {data, response, error in
+        let task = URLSession.shared.dataTask(with: urlRequest) { [weak self] data, response, error in
             guard error == nil else {
                 onError(.other)
                 return
@@ -57,6 +66,7 @@ final class LoginNetwork: LoginNetworkProtocol {
             }
             
             onSucces(token)
+            self?.secureData.setToken(token: token)
         }
         task.resume()
     }

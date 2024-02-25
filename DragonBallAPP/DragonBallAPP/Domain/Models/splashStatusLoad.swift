@@ -9,7 +9,6 @@ import Foundation
 
 enum SplashStatusLoad {
     case loading
-    case loaded
-    case error
-    case none
+    case haveToken
+    case noToken
 }

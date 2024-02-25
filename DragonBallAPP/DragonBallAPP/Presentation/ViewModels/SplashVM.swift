@@ -9,13 +9,23 @@ import Foundation
 
 final class SplashVM {
     
+    private var secureData : SecureDataKeychainProtocol
+    
+    //MARK: - Binding con UI
     var modelStatusLoad: ((SplashStatusLoad) -> Void)?
     
-    func simulationLoadData() {
+    //MARK: - Inits
+    init(secureData: SecureDataKeychainProtocol = SecureDataKeychain()) {
+        self.secureData = secureData
+    }
+    
+    //MARK: - Methods Check Token
+    func checkToken() {
         modelStatusLoad?(.loading)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
-            self?.modelStatusLoad?(.loaded)
+        guard (secureData.getToken() != nil) else {
+            modelStatusLoad?(.noToken)
+            return
         }
+        modelStatusLoad?(.haveToken)
     }
 }

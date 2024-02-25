@@ -32,7 +32,7 @@ final class SplashVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setObservers()
-        viewModel.simulationLoadData()
+        viewModel.checkToken()
     }
 }
 
@@ -45,13 +45,12 @@ extension SplashVC {
             switch status {
             case .loading:
                 self?.showLoading(show: true)
-            case .loaded:
+            case .noToken:
                 self?.showLoading(show: false)
                 self?.navigateToLogin()
-            case .error:
-                print("error")
-            case .none:
-                print("nada")
+            case .haveToken:
+                self?.showLoading(show: false)
+                self?.naviateToHome()
             }
         }
     }
@@ -69,6 +68,11 @@ extension SplashVC {
     private func navigateToLogin() {
         let nextVC = LoginVC()
         navigationController?.setViewControllers([nextVC], animated: false)
+    }
+    
+    private func naviateToHome() {
+        let nextVC = HomeVC()
+        navigationController?.setViewControllers([nextVC], animated: true)
     }
 }
 
