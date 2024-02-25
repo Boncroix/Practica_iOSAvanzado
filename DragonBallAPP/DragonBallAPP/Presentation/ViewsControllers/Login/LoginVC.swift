@@ -51,6 +51,7 @@ final class LoginVC: UIViewController {
 //MARK: - Extension
 extension LoginVC {
     
+    //MARK: - Observers
     private func setObservers() {
         viewModel.loginViewState = { [weak self] status in
             switch status {
@@ -70,12 +71,25 @@ extension LoginVC {
             case .showErrorPassword(let error):
                 self?.errorPassword.text = error
                 self?.errorPassword.isHidden = (error == nil || error?.isEmpty == true)
+                
+            case .errorNetwork(let errorMessage):
+                self?.loadingView.isHidden = true
+                self?.showAlert(message: errorMessage)
             }
         }
     }
     
+    //MARK: - Navigate
     private func navigateToHome() {
         let nextVC = HomeVC()
         navigationController?.setViewControllers([nextVC], animated: true)
+    }
+    
+    //MARK: - Alert
+    private func showAlert(message: String) {
+        let alertController = UIAlertController(title: "Error Network", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Aceptar", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
 }

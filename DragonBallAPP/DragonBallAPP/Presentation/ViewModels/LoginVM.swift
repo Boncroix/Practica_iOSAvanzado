@@ -56,24 +56,26 @@ final class LoginVM {
             DispatchQueue.main.async {
                 self?.loginViewState?(.loaded)
             }
-        } onError: { networkError in
+        } onError: { [weak self] networkError in
             DispatchQueue.main.async {
+                var errorMessage = "Error Desconocido"
                 switch networkError {
                 case .malformedURL:
-                    print("malformedURL")
+                    errorMessage = "Error mal formed URL"
                 case .dataFormatting:
-                    print("dataFormatting")
+                    errorMessage = "Error data formating"
                 case .other:
-                    print("other")
+                    errorMessage = "Error other"
                 case .noData:
-                    print("noData")
-                case .errorCode(_):
-                    print("errorCode")
+                    errorMessage = "Error no data"
+                case .errorCode(let error):
+                    errorMessage = "Error code \(error?.description ?? "Unknown")"
                 case .tokenFormatError:
-                    print("tokenFormatError")
+                    errorMessage = "Error token format"
                 case .decoding:
-                    print("decoding")
+                    errorMessage = "Error desconocido"
                 }
+                self?.loginViewState?(.errorNetwork(_error: errorMessage))
             }
         }
 

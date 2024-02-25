@@ -12,4 +12,5 @@ enum LoginStatusLoad {
     case loaded
     case showErrorEmail(_ error: String?)
     case showErrorPassword(_ error: String?)
+    case errorNetwork(_error: String)
 }
