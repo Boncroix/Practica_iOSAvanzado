@@ -17,22 +17,8 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2g-PQ-txi">
-                    <rect key="frame" x="315" y="59" width="78" height="35"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Logout"/>
-                    <connections>
-                        <action selector="logoutTapped:" destination="-1" eventType="touchUpInside" id="YPz-OY-5Qe"/>
-                    </connections>
-                </button>
-            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="G2g-PQ-txi" secondAttribute="trailing" id="446-zX-7UM"/>
-                <constraint firstItem="G2g-PQ-txi" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="hAJ-Oy-Nne"/>
-            </constraints>
             <point key="canvasLocation" x="131" y="-11"/>
         </view>
     </objects>

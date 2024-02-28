@@ -24,13 +24,6 @@ final class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    @IBAction func logoutTapped(_ sender: Any) {
-        viewModel.deleteToken()
-        navigateToLogin()
-    }
-    private func navigateToLogin() {
-        let nextVC = LoginVC()
-        navigationController?.setViewControllers([nextVC], animated: false)
+        setupNavigationBarWithLogout()
     }
 }

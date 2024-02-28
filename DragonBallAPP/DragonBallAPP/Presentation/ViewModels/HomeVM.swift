@@ -9,13 +9,4 @@ import Foundation
 
 final class HomeVM {
     
-    private var secureData: SecureDataKeychainProtocol
-    
-    init(secureData: SecureDataKeychainProtocol = SecureDataKeychain()) {
-        self.secureData = secureData
-    }
-    
-    func deleteToken() {
-        secureData.deleteToken()
-    }
 }

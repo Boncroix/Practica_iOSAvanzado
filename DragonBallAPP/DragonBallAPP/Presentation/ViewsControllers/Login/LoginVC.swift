@@ -10,7 +10,9 @@ import UIKit
 final class LoginVC: UIViewController {
     
     private var viewModel: LoginVM
-    
+    private var secureData: SecureDataKeychainProtocol
+    private var constraisntBottomLoginButtonDefault = 50.0
+    private var constraintTopLoginButtonDefault = 50.0
     
     //MARK: - IBOutlets
     @IBOutlet weak var emailTextField: UITextField!
@@ -18,12 +20,15 @@ final class LoginVC: UIViewController {
     @IBOutlet weak var errorEmail: UILabel!
     @IBOutlet weak var errorPassword: UILabel!
     @IBOutlet weak var loadingView: UIView!
-    @IBOutlet weak var contraintLoginButton: NSLayoutConstraint!
+    @IBOutlet weak var constraintBottomLoginButton: NSLayoutConstraint!
+    @IBOutlet weak var constraintTopLoginButton: NSLayoutConstraint!
     
     
     //MARK: - Inits
-    init(viewModel: LoginVM = LoginVM()) {
+    init(viewModel: LoginVM = LoginVM(), 
+         secureData: SecureDataKeychainProtocol = SecureDataKeychain()) {
         self.viewModel = viewModel
+        self.secureData = secureData
         super.init(nibName: String(describing: LoginVC.self),
                    bundle: nil)
     }
@@ -38,6 +43,25 @@ final class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setObservers()
+        secureData.deleteToken()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector:  #selector(changedFrameKeyboard(notification:)),
+                                               name: UIResponder.keyboardWillChangeFrameNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self, 
+                                               selector: #selector(changedOrientation(notification:)),
+                                               name: UIDevice.orientationDidChangeNotification,
+                                               object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
     
     //MARK: - IBActions
@@ -91,5 +115,36 @@ extension LoginVC {
         let okAction = UIAlertAction(title: "Aceptar", style: .default, handler: nil)
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    //MARK: - Objc
+    @objc func hideKeyboard() {
+        self.view.endEditing(true)
+    }
+    
+    @objc func changedFrameKeyboard(notification: Notification) {
+        let userInfo = notification.userInfo
+        let frame = userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
+        let delta = UIScreen.main.bounds.size.height - (frame?.origin.y ?? 0)
+        self.constraintBottomLoginButton.constant = constraisntBottomLoginButtonDefault + delta
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc func changedOrientation(notification: Notification) {
+        let orientation = UIDevice.current.orientation
+        self.view.endEditing(true)
+        switch orientation {
+        case .portrait:
+            constraisntBottomLoginButtonDefault = 50.0
+            self.constraintBottomLoginButton.constant = constraisntBottomLoginButtonDefault
+            self.constraintTopLoginButton.constant = constraintTopLoginButtonDefault
+        case .landscapeLeft, .landscapeRight, .portraitUpsideDown:
+            self.constraintBottomLoginButton.constant = 4.0
+            self.constraintTopLoginButton.constant = 4.0
+            constraisntBottomLoginButtonDefault = 4.0
+        default: break
+        }
     }
 }

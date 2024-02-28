@@ -10,7 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginVC" customModule="DragonBallAPP" customModuleProvider="target">
             <connections>
-                <outlet property="contraintLoginButton" destination="vtr-5X-1Fx" id="leZ-BD-Be4"/>
+                <outlet property="constraintBottomLoginButton" destination="vtr-5X-1Fx" id="hLs-FN-tbM"/>
+                <outlet property="constraintTopLoginButton" destination="8JW-uf-II2" id="rLs-1e-1Ju"/>
                 <outlet property="emailTextField" destination="WAg-EL-D6A" id="6Zt-cg-8Ud"/>
                 <outlet property="errorEmail" destination="d0H-5i-H7g" id="A5R-8m-KGl"/>
                 <outlet property="errorPassword" destination="oYW-Fa-FNU" id="raR-9I-EXQ"/>
@@ -27,19 +28,18 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo4" translatesAutoresizingMaskIntoConstraints="NO" id="kNM-bx-aQj">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                 </imageView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Jcn-Nl-G19">
-                    <rect key="frame" x="12" y="586" width="369" height="92"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jcn-Nl-G19">
+                    <rect key="frame" x="12" y="596" width="369" height="84"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="wDQ-n1-pXd">
-                            <rect key="frame" x="0.0" y="0.0" width="369" height="40"/>
+                            <rect key="frame" x="0.0" y="0.0" width="369" height="38"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WAg-EL-D6A">
-                                    <rect key="frame" x="0.0" y="0.0" width="369" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="369" height="38"/>
                                     <color key="backgroundColor" systemColor="systemGray5Color"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="Ne5-ft-lhp"/>
+                                        <constraint firstAttribute="height" constant="38" id="Ne5-ft-lhp"/>
                                     </constraints>
-                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <textInputTraits key="textInputTraits" textContentType="email"/>
                                 </textField>
@@ -52,15 +52,14 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="pY8-xP-OiT">
-                            <rect key="frame" x="0.0" y="52" width="369" height="40"/>
+                            <rect key="frame" x="0.0" y="46" width="369" height="38"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JCw-7t-lnl">
-                                    <rect key="frame" x="0.0" y="0.0" width="369" height="40"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="369" height="38"/>
                                     <color key="backgroundColor" systemColor="systemGray5Color"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="ghZ-up-5Se"/>
+                                        <constraint firstAttribute="height" constant="38" id="ghZ-up-5Se"/>
                                     </constraints>
-                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                 </textField>
@@ -75,9 +74,9 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4U-xi-id0">
-                    <rect key="frame" x="50" y="728" width="293" height="40"/>
+                    <rect key="frame" x="50" y="730" width="293" height="38"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="7ka-GN-btZ"/>
+                        <constraint firstAttribute="height" constant="38" id="7ka-GN-btZ"/>
                     </constraints>
                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Button"/>
