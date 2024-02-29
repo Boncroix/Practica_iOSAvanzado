@@ -26,7 +26,7 @@ extension UIViewController {
     
 
     @objc func logoutTapped() {
-        let backVC = LoginVC()
+        let backVC = LoginViewController()
         self.navigationController?.setViewControllers([backVC], animated: true)
     }
 }

@@ -7,13 +7,13 @@
 
 import UIKit
 
-final class HomeVC: UIViewController {
+final class HerosCollectionView: UIViewController {
     
-    private var viewModel: HomeVM
+    private var viewModel: HerosViewModel
     
-    init(viewModel: HomeVM = HomeVM()) {
+    init(viewModel: HerosViewModel = HerosViewModel()) {
         self.viewModel = viewModel
-        super.init(nibName: String(describing: HomeVC.self),
+        super.init(nibName: String(describing: HerosCollectionView.self),
                    bundle: nil)
     }
     

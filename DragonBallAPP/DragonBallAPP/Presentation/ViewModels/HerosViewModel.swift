@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class HomeVM {
+final class HerosViewModel {
     
     //MARK: - Binding con UI
     var homeViewState: ((HomeStatusLoad) -> Void)?

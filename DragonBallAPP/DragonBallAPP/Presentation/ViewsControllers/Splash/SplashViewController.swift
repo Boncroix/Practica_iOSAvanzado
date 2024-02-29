@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class SplashVC: UIViewController {
+final class SplashViewController: UIViewController {
     
-    private var viewModel: SplashVM
+    private var viewModel: SplashViewModel
     
     
     //MARK: - IbOutlets
@@ -17,9 +17,9 @@ final class SplashVC: UIViewController {
     
     
     //MARK: - Inits
-    init(viewModel: SplashVM = SplashVM()) {
+    init(viewModel: SplashViewModel = SplashViewModel()) {
         self.viewModel = viewModel
-        super.init(nibName: String(describing: SplashVC.self), 
+        super.init(nibName: String(describing: SplashViewController.self), 
                    bundle: nil)
     }
     
@@ -38,7 +38,7 @@ final class SplashVC: UIViewController {
 
 
 //MARK: - Extension
-extension SplashVC {
+extension SplashViewController {
 
     private func setObservers() {
         viewModel.modelStatusLoad = { [weak self] status in
@@ -66,12 +66,12 @@ extension SplashVC {
     }
     
     private func navigateToLogin() {
-        let nextVC = LoginVC()
+        let nextVC = LoginViewController()
         navigationController?.setViewControllers([nextVC], animated: false)
     }
     
     private func naviateToHome() {
-        let nextVC = HomeVC()
+        let nextVC = HerosCollectionView()
         navigationController?.setViewControllers([nextVC], animated: true)
     }
 }

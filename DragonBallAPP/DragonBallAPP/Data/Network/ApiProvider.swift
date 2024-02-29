@@ -12,14 +12,17 @@ final class ApiProvider {
     private var session: URLSession
     private var requestProvider: RequestProvider
     private var secureData: SecureDataKeychainProtocol
+    private var storeData: StoreDataProvider
     
     //MARK: - Inits
     init(session: URLSession = URLSession.shared,
          requestProvider: RequestProvider = RequestProvider(),
-         secureData: SecureDataKeychainProtocol = SecureDataKeychain()) {
+         secureData: SecureDataKeychainProtocol = SecureDataKeychain(),
+         storeData: StoreDataProvider = StoreDataProvider()) {
         self.session = session
         self.requestProvider = requestProvider
         self.secureData = secureData
+        self.storeData = storeData
     }
     
     //MARK: - Login
@@ -77,7 +80,7 @@ final class ApiProvider {
 //MARK: - Extension Make Request
 extension ApiProvider {
     
-    func makeRequestFor(request: URLRequest, 
+    private func makeRequestFor(request: URLRequest,
                         completion: @escaping (Result<Bool, NetworkError>) -> Void) {
 
         session.dataTask(with: request) { [weak self] data, response, error in
@@ -104,7 +107,7 @@ extension ApiProvider {
         .resume()
     }
     
-    func makeRequestFor<T: Decodable>(request: URLRequest,
+    private func makeRequestFor<T: Decodable>(request: URLRequest,
                                       completion: @escaping (Result<[T], NetworkError>) -> Void) {
         
         session.dataTask(with: request) { data, response, error in

@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class LoginVC: UIViewController {
+final class LoginViewController: UIViewController {
     
-    private var viewModel: LoginVM
+    private var viewModel: LoginViewModel
     private var secureData: SecureDataKeychainProtocol
     private var constraisntBottomLoginButtonDefault = 50.0
     private var constraintTopLoginButtonDefault = 50.0
@@ -25,11 +25,11 @@ final class LoginVC: UIViewController {
     
     
     //MARK: - Inits
-    init(viewModel: LoginVM = LoginVM(), 
+    init(viewModel: LoginViewModel = LoginViewModel(), 
          secureData: SecureDataKeychainProtocol = SecureDataKeychain()) {
         self.viewModel = viewModel
         self.secureData = secureData
-        super.init(nibName: String(describing: LoginVC.self),
+        super.init(nibName: String(describing: LoginViewController.self),
                    bundle: nil)
     }
     
@@ -75,7 +75,7 @@ final class LoginVC: UIViewController {
 
 
 //MARK: - Extension
-extension LoginVC {
+extension LoginViewController {
     
     //MARK: - Observers
     private func setObservers() {
@@ -107,14 +107,14 @@ extension LoginVC {
     
     //MARK: - Navigate
     private func navigateToHome() {
-        let nextVC = HomeVC()
+        let nextVC = HerosCollectionView()
         navigationController?.setViewControllers([nextVC], animated: true)
     }
     
     //MARK: - Alert
     private func showAlert(message: String) {
         let alertController = UIAlertController(title: "Error Network", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Aceptar", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }

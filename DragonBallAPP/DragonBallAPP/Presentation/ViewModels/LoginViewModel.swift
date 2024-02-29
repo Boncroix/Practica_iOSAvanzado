@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class LoginVM {
+final class LoginViewModel {
     
     //MARK: - Binding con UI
     var loginViewState: ((LoginStatusLoad) -> Void)?
@@ -43,8 +43,9 @@ final class LoginVM {
                     self?.loginViewState?(.loaded)
                 }
             case .failure(let error):
-                let errorMessage = NetworkError.networkError(error)
-                self?.loginViewState?(.errorNetwork(_error: errorMessage()))
+                DispatchQueue.main.async {
+                    self?.loginViewState?(.errorNetwork(_error: error.description))
+                }
             }
         }
     }

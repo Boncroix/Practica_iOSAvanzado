@@ -16,7 +16,7 @@ enum NetworkError: Error {
     case tokenFormatError
     case decoding
     
-    func networkError() -> String {
+    var description: String {
         switch self {
         case .malformedURL:
             return "Error mal formed URL"

@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class SplashVM {
+final class SplashViewModel {
     
     private var secureData : SecureDataKeychainProtocol
     
