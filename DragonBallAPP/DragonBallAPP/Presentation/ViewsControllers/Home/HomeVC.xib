@@ -17,12 +17,46 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo5" translatesAutoresizingMaskIntoConstraints="NO" id="TDT-5c-hkW">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                </imageView>
+                <view alpha="0.40000000596046448" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J6R-pQ-uKH" userLabel="FilterView">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="BEC-O7-kyz">
+                    <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iB1-vX-uBy">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="131" y="-11"/>
+            <constraints>
+                <constraint firstItem="BEC-O7-kyz" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="8XU-t9-WSu"/>
+                <constraint firstAttribute="bottom" secondItem="J6R-pQ-uKH" secondAttribute="bottom" id="8qK-Hw-Qrc"/>
+                <constraint firstAttribute="bottom" secondItem="TDT-5c-hkW" secondAttribute="bottom" id="A7s-1o-XXq"/>
+                <constraint firstItem="J6R-pQ-uKH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="CKx-j7-VB1"/>
+                <constraint firstItem="TDT-5c-hkW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="HlF-eD-zgw"/>
+                <constraint firstItem="TDT-5c-hkW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="PID-iy-ret"/>
+                <constraint firstItem="BEC-O7-kyz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="RfF-ca-0fo"/>
+                <constraint firstAttribute="bottom" secondItem="BEC-O7-kyz" secondAttribute="bottom" id="WGB-n6-Zbg"/>
+                <constraint firstItem="J6R-pQ-uKH" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="ce9-gj-DhB"/>
+                <constraint firstAttribute="trailing" secondItem="BEC-O7-kyz" secondAttribute="trailing" id="i3f-od-1NH"/>
+                <constraint firstItem="TDT-5c-hkW" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="k2b-k7-eIa"/>
+                <constraint firstItem="J6R-pQ-uKH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rQd-FD-1Ve"/>
+            </constraints>
+            <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>
     </objects>
     <resources>
+        <image name="fondo5" width="1116" height="1941"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

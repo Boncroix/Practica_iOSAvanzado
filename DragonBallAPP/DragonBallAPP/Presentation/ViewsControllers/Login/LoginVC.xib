@@ -28,6 +28,10 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo4" translatesAutoresizingMaskIntoConstraints="NO" id="kNM-bx-aQj">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                 </imageView>
+                <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4zK-Lf-QKj" userLabel="FilterView">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Jcn-Nl-G19">
                     <rect key="frame" x="12" y="596" width="369" height="84"/>
                     <subviews>
@@ -89,7 +93,7 @@
                         <action selector="didTapLoginButton:" destination="-1" eventType="touchUpInside" id="9cR-f6-1ON"/>
                     </connections>
                 </button>
-                <view hidden="YES" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FCn-AQ-aHT">
+                <view hidden="YES" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FCn-AQ-aHT" userLabel="CargingView">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <subviews>
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="9Jb-Mo-DTj">
@@ -109,18 +113,22 @@
             <constraints>
                 <constraint firstItem="l4U-xi-id0" firstAttribute="top" secondItem="Jcn-Nl-G19" secondAttribute="bottom" constant="50" id="8JW-uf-II2"/>
                 <constraint firstItem="FCn-AQ-aHT" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="FG3-0h-MBK"/>
+                <constraint firstItem="4zK-Lf-QKj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Fmh-Ts-1Q2"/>
                 <constraint firstItem="FCn-AQ-aHT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Rg2-yw-BJT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Jcn-Nl-G19" secondAttribute="trailing" constant="12" id="ShW-2R-v15"/>
                 <constraint firstAttribute="bottom" secondItem="FCn-AQ-aHT" secondAttribute="bottom" id="UX2-5m-9K7"/>
                 <constraint firstItem="l4U-xi-id0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="bR1-jq-Qpt"/>
                 <constraint firstItem="kNM-bx-aQj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bjm-Ef-lnQ"/>
                 <constraint firstAttribute="bottom" secondItem="kNM-bx-aQj" secondAttribute="bottom" id="e3H-ic-6md"/>
+                <constraint firstItem="4zK-Lf-QKj" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="eAv-85-38s"/>
                 <constraint firstItem="FCn-AQ-aHT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="isI-rQ-g4G"/>
                 <constraint firstItem="Jcn-Nl-G19" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="orn-yw-lnM"/>
+                <constraint firstItem="4zK-Lf-QKj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pzi-PO-D4n"/>
                 <constraint firstItem="kNM-bx-aQj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="snx-St-bzS"/>
                 <constraint firstAttribute="trailing" secondItem="kNM-bx-aQj" secondAttribute="trailing" id="soB-vW-ena"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="l4U-xi-id0" secondAttribute="bottom" constant="50" id="vtr-5X-1Fx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="l4U-xi-id0" secondAttribute="trailing" constant="50" id="whh-Tk-9mu"/>
+                <constraint firstAttribute="bottom" secondItem="4zK-Lf-QKj" secondAttribute="bottom" id="ybQ-Wu-VoJ"/>
             </constraints>
             <point key="canvasLocation" x="70.992366412213741" y="-11.267605633802818"/>
         </view>

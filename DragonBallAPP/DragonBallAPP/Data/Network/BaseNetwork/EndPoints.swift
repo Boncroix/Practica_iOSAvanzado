@@ -7,7 +7,22 @@
 
 import Foundation
 
-enum EndPoints: String {
-    case url = "https://dragonball.keepcoding.education/api"
-    case login = "/auth/login"
+enum EndPoints {
+    case login
+    case heroes
+    case transformations
+    case locations
+    
+    func endpoint() -> String {
+        switch self {
+        case .login:
+            return "/api/auth/login"
+        case .heroes:
+            return "/api/heros/all"
+        case .transformations:
+            return "/api/heros/tranformations"
+        case .locations:
+            return "/api/heros/locations"
+        }
+    }
 }

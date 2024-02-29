@@ -13,11 +13,11 @@ final class LoginVM {
     var loginViewState: ((LoginStatusLoad) -> Void)?
     
     //MARK: - Binding con loginNetwork
-    private let loginNetwork: LoginNetworkProtocol
+    private let client: ApiProvider
     
     //MARK: - Inits
-    init(loginNetwork: LoginNetworkProtocol = LoginNetwork()) {
-        self.loginNetwork = loginNetwork
+    init(client: ApiProvider = ApiProvider()) {
+        self.client = client
     }
     
     //MARK: - Methods Login
@@ -36,7 +36,17 @@ final class LoginVM {
             return
         }
         
-        doLoginWith(email: email, password: password)
+        client.loginWith(email: email, password: password) { [weak self] result in
+            switch result {
+            case .success(_):
+                DispatchQueue.main.async {
+                    self?.loginViewState?(.loaded)
+                }
+            case .failure(let error):
+                let errorMessage = NetworkError.networkError(error)
+                self?.loginViewState?(.errorNetwork(_error: errorMessage()))
+            }
+        }
     }
     
     private func isValid(email: String) -> Bool {
@@ -45,34 +55,5 @@ final class LoginVM {
     
     private func isValid(password: String) -> Bool {
         password.isEmpty == false && password.count >= 4
-    }
-    
-    private func doLoginWith(email: String, password: String) {
-        loginNetwork.login(email: email, password: password) { [weak self] token in
-            DispatchQueue.main.async {
-                self?.loginViewState?(.loaded)
-            }
-        } onError: { [weak self] networkError in
-            DispatchQueue.main.async {
-                var errorMessage = "Error Desconocido"
-                switch networkError {
-                case .malformedURL:
-                    errorMessage = "Error mal formed URL"
-                case .dataFormatting:
-                    errorMessage = "Error data formating"
-                case .other:
-                    errorMessage = "Error other"
-                case .noData:
-                    errorMessage = "Error no data"
-                case .errorCode(let error):
-                    errorMessage = "Error code \(error?.description ?? "Unknown")"
-                case .tokenFormatError:
-                    errorMessage = "Error token format"
-                case .decoding:
-                    errorMessage = "Error desconocido"
-                }
-                self?.loginViewState?(.errorNetwork(_error: errorMessage))
-            }
-        }
     }
 }

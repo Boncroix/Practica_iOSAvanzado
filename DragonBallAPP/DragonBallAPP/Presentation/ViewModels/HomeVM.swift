@@ -9,4 +9,7 @@ import Foundation
 
 final class HomeVM {
     
+    //MARK: - Binding con UI
+    var homeViewState: ((HomeStatusLoad) -> Void)?
+    
 }

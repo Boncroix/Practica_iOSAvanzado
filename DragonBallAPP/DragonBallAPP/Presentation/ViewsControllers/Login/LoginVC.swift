@@ -44,19 +44,21 @@ final class LoginVC: UIViewController {
         super.viewDidLoad()
         setObservers()
         secureData.deleteToken()
+        setUpViewController()
         let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         self.view.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector:  #selector(changedFrameKeyboard(notification:)),
-                                               name: UIResponder.keyboardWillChangeFrameNotification,
-                                               object: nil)
         NotificationCenter.default.addObserver(self, 
-                                               selector: #selector(changedOrientation(notification:)),
-                                               name: UIDevice.orientationDidChangeNotification,
-                                               object: nil)
+                                    selector: #selector(changedFrameKeyboard(notification:)),
+                                    name: UIResponder.keyboardWillChangeFrameNotification,
+                                    object: nil)
+        NotificationCenter.default.addObserver(self, 
+                                    selector: #selector(changedOrientation(notification:)),
+                                    name: UIDevice.orientationDidChangeNotification,
+                                    object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -117,6 +119,19 @@ extension LoginVC {
         present(alertController, animated: true, completion: nil)
     }
     
+    //MARK: - SetUp
+    private func setUpViewController() {
+        let showPasswordButton = UIButton(type: .system)
+        showPasswordButton.setImage(UIImage(systemName: "eye"), for: .normal)
+        showPasswordButton.tintColor = UIColor.lightGray
+        showPasswordButton.addTarget(self, action: #selector(didTapShowPasswordButton), for: [.touchDown, .touchUpInside])
+        
+        passwordTextField.rightView = showPasswordButton
+        passwordTextField.rightViewMode = .always
+    }
+    
+    
+    
     //MARK: - Objc
     @objc func hideKeyboard() {
         self.view.endEditing(true)
@@ -146,5 +161,9 @@ extension LoginVC {
             constraisntBottomLoginButtonDefault = 4.0
         default: break
         }
+    }
+    
+    @objc func didTapShowPasswordButton(sender: UIButton) {
+        passwordTextField.isSecureTextEntry.toggle()
     }
 }
