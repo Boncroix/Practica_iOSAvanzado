@@ -106,6 +106,7 @@ extension StoreDataProvider {
     func clearBBDD() {
         let deleteHeroes = NSBatchDeleteRequest(fetchRequest: NSMHero.fetchRequest())
         let deleteTransformations = NSBatchDeleteRequest(fetchRequest: NSMTransformations.fetchRequest())
+        let deleteLocations = NSBatchDeleteRequest(fetchRequest: NSMLocations.fetchRequest())
         context.reset()
         
         for task in [deleteHeroes, deleteTransformations] {
