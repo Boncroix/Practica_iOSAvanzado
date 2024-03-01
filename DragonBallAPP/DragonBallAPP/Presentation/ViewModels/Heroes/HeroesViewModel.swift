@@ -41,12 +41,14 @@ final class HeroesViewModel {
         }
     }
     
+    //MARK: - NotificationLoadData
     private func notifyDataUpdated() {
         DispatchQueue.main.async {
             self.heroesViewState?(.loaded)
         }
     }
     
+    //MARK: - GetHeroesApi
     private func getHeroes() {
         apiProvider.getHeroesWith { [weak self] result in
             switch result {
@@ -59,11 +61,13 @@ final class HeroesViewModel {
         }
     }
     
+    //MARK: - SortDescriptor
     func sortDescriptor(ascending: Bool = true ) {
         let sort = NSSortDescriptor(keyPath: \NSMHero.name, ascending: ascending)
         self.heroes = self.storeDataProvider.fetchHeroes(sorting: [sort])
     }
     
+    //MARK: - Observers
     private func addObservers() {
         NotificationCenter.default.addObserver(forName: NSManagedObjectContext.didSaveObjectsNotification, object: nil, queue: .main) { [weak self] notification in
             self?.sortDescriptor()

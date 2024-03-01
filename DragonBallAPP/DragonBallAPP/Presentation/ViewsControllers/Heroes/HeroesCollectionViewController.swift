@@ -16,6 +16,7 @@ class HeroesCollectionViewController: UIViewController {
     //MARK: - IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     private var viewModel: HeroesViewModel
     private var dataSource: DataSource?
@@ -36,6 +37,7 @@ class HeroesCollectionViewController: UIViewController {
         viewModel.loadData()
         setupNavigationBarWithLogout()
         setObservers()
+        collectionView.delegate = self
     }
 }
 
@@ -62,7 +64,7 @@ extension HeroesCollectionViewController {
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: segmentedControl)
-        navigationItem.title = "DRAGON BALL"
+        navigationItem.title = "HEROES"
     }
     @objc func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         let ascending = sender.selectedSegmentIndex == 0 ? true : false

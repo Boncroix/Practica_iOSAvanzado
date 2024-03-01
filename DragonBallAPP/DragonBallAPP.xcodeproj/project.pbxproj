@@ -296,8 +296,8 @@
 			children = (
 				428DE35A2B891615009A44C1 /* Splash */,
 				428DE3612B89282F009A44C1 /* Login */,
-				4297CDA32B8A218F00D46E59 /* Heros */,
-				4297CE4F2B90C71500D46E59 /* Detail */,
+				4297CDA32B8A218F00D46E59 /* Heroes */,
+				4297CE4F2B90C71500D46E59 /* DetailHeroes */,
 			);
 			path = ViewsControllers;
 			sourceTree = "<group>";
@@ -352,14 +352,14 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		4297CDA32B8A218F00D46E59 /* Heros */ = {
+		4297CDA32B8A218F00D46E59 /* Heroes */ = {
 			isa = PBXGroup;
 			children = (
 				4297CE422B90B14500D46E59 /* Cell Custom Heroes */,
 				4297CE782B90DA0300D46E59 /* HeroesCollectionViewController.swift */,
 				4297CE792B90DA0300D46E59 /* HeroesCollectionViewController.xib */,
 			);
-			path = Heros;
+			path = Heroes;
 			sourceTree = "<group>";
 		};
 		4297CDB02B8B189300D46E59 /* BaseNetwork */ = {
@@ -410,13 +410,13 @@
 			path = "Cell Custom Heroes";
 			sourceTree = "<group>";
 		};
-		4297CE4F2B90C71500D46E59 /* Detail */ = {
+		4297CE4F2B90C71500D46E59 /* DetailHeroes */ = {
 			isa = PBXGroup;
 			children = (
 				4297CE542B90C79C00D46E59 /* DetailViewController.swift */,
 				4297CE552B90C79C00D46E59 /* DetailViewController.xib */,
 			);
-			path = Detail;
+			path = DetailHeroes;
 			sourceTree = "<group>";
 		};
 		4297CE802B90FFD000D46E59 /* Splash */ = {
