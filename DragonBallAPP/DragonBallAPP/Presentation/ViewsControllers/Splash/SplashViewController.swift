@@ -50,7 +50,7 @@ extension SplashViewController {
                 self?.navigateToLogin()
             case .haveToken:
                 self?.showLoading(show: false)
-                self?.naviateToHome()
+                self?.navigateToHeroes()
             }
         }
     }
@@ -70,8 +70,8 @@ extension SplashViewController {
         navigationController?.setViewControllers([nextVC], animated: false)
     }
     
-    private func naviateToHome() {
-        let nextVC = HerosCollectionView()
+    private func navigateToHeroes() {
+        let nextVC = HeroesCollectionViewController()
         navigationController?.setViewControllers([nextVC], animated: true)
     }
 }

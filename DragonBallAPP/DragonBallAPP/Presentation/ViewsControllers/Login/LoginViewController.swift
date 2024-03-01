@@ -11,6 +11,7 @@ final class LoginViewController: UIViewController {
     
     private var viewModel: LoginViewModel
     private var secureData: SecureDataKeychainProtocol
+    private var storeDataProvider : StoreDataProvider
     private var constraisntBottomLoginButtonDefault = 50.0
     private var constraintTopLoginButtonDefault = 50.0
     
@@ -26,9 +27,11 @@ final class LoginViewController: UIViewController {
     
     //MARK: - Inits
     init(viewModel: LoginViewModel = LoginViewModel(), 
-         secureData: SecureDataKeychainProtocol = SecureDataKeychain()) {
+         secureData: SecureDataKeychainProtocol = SecureDataKeychain(),
+         storeDataProvider: StoreDataProvider = StoreDataProvider()) {
         self.viewModel = viewModel
         self.secureData = secureData
+        self.storeDataProvider = storeDataProvider
         super.init(nibName: String(describing: LoginViewController.self),
                    bundle: nil)
     }
@@ -44,6 +47,7 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
         setObservers()
         secureData.deleteToken()
+        storeDataProvider.clearBBDD()
         setUpViewController()
         let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         self.view.addGestureRecognizer(tap)
@@ -88,7 +92,7 @@ extension LoginViewController {
                 
             case .loaded:
                 self?.loadingView.isHidden = true
-                self?.navigateToHome()
+                self?.navigateToHeroes()
                 
             case .showErrorEmail(let error):
                 self?.errorEmail.text = error
@@ -106,9 +110,9 @@ extension LoginViewController {
     }
     
     //MARK: - Navigate
-    private func navigateToHome() {
-        let nextVC = HerosCollectionView()
-        navigationController?.setViewControllers([nextVC], animated: true)
+    private func navigateToHeroes() {
+        let nextVC = HeroesCollectionViewController()
+        navigationController?.setViewControllers([nextVC], animated: false)
     }
     
     //MARK: - Alert
@@ -123,7 +127,7 @@ extension LoginViewController {
     private func setUpViewController() {
         let showPasswordButton = UIButton(type: .system)
         showPasswordButton.setImage(UIImage(systemName: "eye"), for: .normal)
-        showPasswordButton.tintColor = UIColor.lightGray
+        showPasswordButton.tintColor = UIColor.customColor3
         showPasswordButton.addTarget(self, action: #selector(didTapShowPasswordButton), for: [.touchDown, .touchUpInside])
         
         passwordTextField.rightView = showPasswordButton

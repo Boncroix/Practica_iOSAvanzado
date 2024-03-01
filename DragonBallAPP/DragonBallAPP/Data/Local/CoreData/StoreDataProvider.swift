@@ -8,18 +8,43 @@
 import Foundation
 import CoreData
 
+enum StoreType {
+    case disk
+    case inMemory
+}
+
 final class StoreDataProvider {
     
-    let persistenContainer: NSPersistentContainer
-    var context: NSManagedObjectContext {
-        return persistenContainer.viewContext
-    }
+    static var managedObjectModel: NSManagedObjectModel = {
+        let bundle = Bundle(for: StoreDataProvider.self)
+        guard  let url = bundle.url(forResource: "Model", withExtension: "momd"),
+               let mom = NSManagedObjectModel(contentsOf: url) else {
+            fatalError(" Error loading model file")
+        }
+        return mom
+    }()
     
-    init() {
-        self.persistenContainer = NSPersistentContainer(name: "Model")
-        self.persistenContainer.loadPersistentStores { _, error in
+    static var shared = StoreDataProvider()
+    
+    let persistentContainer: NSPersistentContainer
+    lazy var context: NSManagedObjectContext = {
+        var viewContext = persistentContainer.viewContext
+        viewContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
+        return viewContext
+    }()
+    
+    init(storeType: StoreType = .disk) {
+        self.persistentContainer = NSPersistentContainer(name: "Model", managedObjectModel: Self.managedObjectModel)
+        if  storeType == .inMemory {
+            if let store = self.persistentContainer.persistentStoreDescriptions.first {
+                store.url = URL(filePath: "dev/null")
+            } else {
+                fatalError(" Error loading persistent Store Description")
+            }
+        }
+        self.persistentContainer.loadPersistentStores { _, error in
             if let error {
-                fatalError("Error creating BBDD")
+                fatalError("Error creating BBDD \(error)")
             }
         }
     }
@@ -27,9 +52,9 @@ final class StoreDataProvider {
 
 extension StoreDataProvider {
     
-    func insert(heros: [Hero]) {
+    func insert(heroes: [Hero]) {
         context.performAndWait {
-            for hero in heros {
+            for hero in heroes {
                 let newHero = NSMHero(context: context)
                 newHero.id = hero.id
                 newHero.name = hero.name
@@ -41,8 +66,12 @@ extension StoreDataProvider {
         }
     }
     
-    func fetchHeros(filter: NSPredicate? = nil) -> [NSMHero] {
+    func fetchHeroes(filter: NSPredicate? = nil,
+                     sorting: [NSSortDescriptor]? = nil) -> [NSMHero] {
+        
         let request = NSMHero.fetchRequest()
+        request.predicate = filter
+        request.sortDescriptors = sorting
         do {
             return try context.fetch(request)
         } catch {
@@ -59,7 +88,7 @@ extension StoreDataProvider {
                 newTransformation.photo = transformation.photo
                 newTransformation.descrip = transformation.description
                 let filter = NSPredicate(format: "id == %@", transformation.hero?.id ?? "")
-                newTransformation.hero = self.fetchHeros(filter: filter).first
+                newTransformation.hero = self.fetchHeroes(filter: filter).first
             }
             self.saveContext()
         }
@@ -71,6 +100,20 @@ extension StoreDataProvider {
             return try context.fetch(request)
         } catch {
             return []
+        }
+    }
+    
+    func clearBBDD() {
+        let deleteHeroes = NSBatchDeleteRequest(fetchRequest: NSMHero.fetchRequest())
+        let deleteTransformations = NSBatchDeleteRequest(fetchRequest: NSMTransformations.fetchRequest())
+        context.reset()
+        
+        for task in [deleteHeroes, deleteTransformations] {
+            do {
+               try  context.execute(task)
+            } catch {
+                debugPrint("Error cleaing BBDD")
+            }
         }
     }
     

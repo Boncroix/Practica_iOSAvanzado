@@ -1,0 +1,76 @@
+//
+//  HomeVM.swift
+//  DragonBallAPP
+//
+//  Created by Jose Bueno Cruz on 25/2/24.
+//
+
+import Foundation
+import CoreData
+
+final class HeroesViewModel {
+    
+    //MARK: - Binding con UI
+    var heroesViewState: ((HeroesStatusLoad) -> Void)?
+    
+    //MARK: - Binding con Api
+    private var apiProvider: ApiProvider
+    private var storeDataProvider : StoreDataProvider
+    var heroes: [NSMHero] = []
+    
+    //MARK: - Inits
+    init(apiProvider: ApiProvider = ApiProvider(), 
+         storeDataProvider: StoreDataProvider = StoreDataProvider()) {
+        self.apiProvider = apiProvider
+        self.storeDataProvider = storeDataProvider
+        self.addObservers()
+    }
+    
+    deinit {
+        removeObservers()
+    }
+    
+    //MARK: - Load Data
+    func loadData() {
+        heroesViewState?(.loading(true))
+        sortDescriptor()
+        if heroes.isEmpty {
+            getHeroes()
+        } else {
+            notifyDataUpdated()
+        }
+    }
+    
+    private func notifyDataUpdated() {
+        DispatchQueue.main.async {
+            self.heroesViewState?(.loaded)
+        }
+    }
+    
+    private func getHeroes() {
+        apiProvider.getHeroesWith { [weak self] result in
+            switch result {
+            case .success(let heroes):
+                self?.storeDataProvider.insert(heroes: heroes)
+                self?.notifyDataUpdated()
+            case .failure(let error):
+                debugPrint("Error loading heroes \(error.description)")
+            }
+        }
+    }
+    
+    func sortDescriptor(ascending: Bool = true ) {
+        let sort = NSSortDescriptor(keyPath: \NSMHero.name, ascending: ascending)
+        self.heroes = self.storeDataProvider.fetchHeroes(sorting: [sort])
+    }
+    
+    private func addObservers() {
+        NotificationCenter.default.addObserver(forName: NSManagedObjectContext.didSaveObjectsNotification, object: nil, queue: .main) { [weak self] notification in
+            self?.sortDescriptor()
+        }
+    }
+    
+    private func removeObservers() {
+        NotificationCenter.default.removeObserver(self)
+    }
+}

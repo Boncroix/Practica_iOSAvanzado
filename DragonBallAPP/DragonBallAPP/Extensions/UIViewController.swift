@@ -10,7 +10,7 @@ import UIKit
 extension UIViewController {
     
     func setupNavigationBarWithLogout() {
-        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.tintColor = UIColor.customColor2
         
         let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 30, weight: .regular)
         let symbolImage = UIImage(systemName: "figure.walk.motion", withConfiguration: symbolConfiguration)

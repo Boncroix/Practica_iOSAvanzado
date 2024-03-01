@@ -40,7 +40,7 @@ final class ApiProvider {
         makeRequestFor(request: request, completion: completion)
     }
     
-    //MARK: - Get Heros
+    //MARK: - Get Heroes
     func getHeroesWith (name: String? = nil,
                         completion: @escaping (Result<[Hero], NetworkError>) -> Void) {
         guard let token = secureData.getToken() else {

@@ -8,8 +8,8 @@
 import Foundation
 
 // MARK: - Hero
-struct Hero: Decodable {
-    let name, id: String?
+struct Hero: Decodable, Hashable {
+    let name, id: String
     let favorite: Bool?
     let photo: String?
     let description: String?
