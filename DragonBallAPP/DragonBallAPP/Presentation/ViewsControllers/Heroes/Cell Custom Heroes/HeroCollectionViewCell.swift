@@ -9,12 +9,12 @@ import UIKit
 
 final class HeroCollectionViewCell: UICollectionViewCell {
     
-    // MARK: - Identifier
+    //MARK: - Identifier
     static var identifier: String {
         return String(describing: self)
     }
     
-    // MARK: - IBOutlets
+    //MARK: - IBOutlets
     @IBOutlet weak var heroImage: UIImageView!
     @IBOutlet weak var heroNameLabel: UILabel!
     
@@ -23,7 +23,7 @@ final class HeroCollectionViewCell: UICollectionViewCell {
         heroNameLabel.text = nil
     }
     
-    // MARK: - Configure
+    //MARK: - Configure
     func configureWith(hero: NSMHero) {
         heroNameLabel.text = hero.name
         guard let imageURL = URL(string: hero.photo ?? "") else {

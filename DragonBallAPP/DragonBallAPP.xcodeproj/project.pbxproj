@@ -111,6 +111,12 @@
 		4297CE9A2B91B7CB00D46E59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4297CE992B91B7CB00D46E59 /* LaunchScreen.storyboard */; };
 		4297CE9B2B91B7CB00D46E59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4297CE992B91B7CB00D46E59 /* LaunchScreen.storyboard */; };
 		4297CE9C2B91B7CB00D46E59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4297CE992B91B7CB00D46E59 /* LaunchScreen.storyboard */; };
+		4297CEA02B92555800D46E59 /* TransformationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CE9E2B92555700D46E59 /* TransformationCollectionViewCell.swift */; };
+		4297CEA12B92555800D46E59 /* TransformationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CE9E2B92555700D46E59 /* TransformationCollectionViewCell.swift */; };
+		4297CEA22B92555800D46E59 /* TransformationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CE9E2B92555700D46E59 /* TransformationCollectionViewCell.swift */; };
+		4297CEA32B92555800D46E59 /* TransformationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4297CE9F2B92555800D46E59 /* TransformationCollectionViewCell.xib */; };
+		4297CEA42B92555800D46E59 /* TransformationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4297CE9F2B92555800D46E59 /* TransformationCollectionViewCell.xib */; };
+		4297CEA52B92555800D46E59 /* TransformationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4297CE9F2B92555800D46E59 /* TransformationCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +180,8 @@
 		4297CE782B90DA0300D46E59 /* HeroesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesCollectionViewController.swift; sourceTree = "<group>"; };
 		4297CE792B90DA0300D46E59 /* HeroesCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroesCollectionViewController.xib; sourceTree = "<group>"; };
 		4297CE992B91B7CB00D46E59 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4297CE9E2B92555700D46E59 /* TransformationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationCollectionViewCell.swift; sourceTree = "<group>"; };
+		4297CE9F2B92555800D46E59 /* TransformationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransformationCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -413,6 +421,7 @@
 		4297CE4F2B90C71500D46E59 /* DetailHeroes */ = {
 			isa = PBXGroup;
 			children = (
+				4297CE9D2B92552100D46E59 /* Cell Custom Transformations */,
 				4297CE542B90C79C00D46E59 /* DetailViewController.swift */,
 				4297CE552B90C79C00D46E59 /* DetailViewController.xib */,
 			);
@@ -441,6 +450,15 @@
 				4297CDD62B8BE16700D46E59 /* HeroesViewModel.swift */,
 			);
 			path = Heroes;
+			sourceTree = "<group>";
+		};
+		4297CE9D2B92552100D46E59 /* Cell Custom Transformations */ = {
+			isa = PBXGroup;
+			children = (
+				4297CE9E2B92555700D46E59 /* TransformationCollectionViewCell.swift */,
+				4297CE9F2B92555800D46E59 /* TransformationCollectionViewCell.xib */,
+			);
+			path = "Cell Custom Transformations";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -556,6 +574,7 @@
 				428DE35E2B891643009A44C1 /* SplashViewController.xib in Resources */,
 				4297CE592B90C79C00D46E59 /* DetailViewController.xib in Resources */,
 				428DE3672B89284F009A44C1 /* LoginViewController.xib in Resources */,
+				4297CEA32B92555800D46E59 /* TransformationCollectionViewCell.xib in Resources */,
 				4297CE7D2B90DA0400D46E59 /* HeroesCollectionViewController.xib in Resources */,
 				4297CE9A2B91B7CB00D46E59 /* LaunchScreen.storyboard in Resources */,
 				4297CE482B90B16C00D46E59 /* HeroCollectionViewCell.xib in Resources */,
@@ -572,6 +591,7 @@
 				4297CE5A2B90C79C00D46E59 /* DetailViewController.xib in Resources */,
 				4297CE9B2B91B7CB00D46E59 /* LaunchScreen.storyboard in Resources */,
 				4297CE7E2B90DA0400D46E59 /* HeroesCollectionViewController.xib in Resources */,
+				4297CEA42B92555800D46E59 /* TransformationCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,6 +604,7 @@
 				4297CE5B2B90C79C00D46E59 /* DetailViewController.xib in Resources */,
 				4297CE9C2B91B7CB00D46E59 /* LaunchScreen.storyboard in Resources */,
 				4297CE7F2B90DA0400D46E59 /* HeroesCollectionViewController.xib in Resources */,
+				4297CEA52B92555800D46E59 /* TransformationCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,6 +636,7 @@
 				4297CE1D2B8F526800D46E59 /* NSMHero.swift in Sources */,
 				4297CDDC2B8D01E500D46E59 /* UIViewController.swift in Sources */,
 				4297CDBE2B8B1A2300D46E59 /* HTTPResponseCodes.swift in Sources */,
+				4297CEA02B92555800D46E59 /* TransformationCollectionViewCell.swift in Sources */,
 				4297CDA02B89FD9B00D46E59 /* LoginStatusLoad.swift in Sources */,
 				428DE3642B89284F009A44C1 /* LoginViewController.swift in Sources */,
 				4297CE7A2B90DA0300D46E59 /* HeroesCollectionViewController.swift in Sources */,
@@ -632,6 +654,7 @@
 			files = (
 				4297CE062B8F494A00D46E59 /* StoreDataProvider.swift in Sources */,
 				4297CDBF2B8B1A2300D46E59 /* HTTPResponseCodes.swift in Sources */,
+				4297CEA12B92555800D46E59 /* TransformationCollectionViewCell.swift in Sources */,
 				4297CE1E2B8F526800D46E59 /* NSMHero.swift in Sources */,
 				4297CDCF2B8BA9B300D46E59 /* SecureDataKeychain.swift in Sources */,
 				4297CE3C2B90650700D46E59 /* Location.swift in Sources */,
@@ -686,6 +709,7 @@
 				4297CE1F2B8F526800D46E59 /* NSMHero.swift in Sources */,
 				4297CDDE2B8D01E500D46E59 /* UIViewController.swift in Sources */,
 				4297CDC02B8B1A2300D46E59 /* HTTPResponseCodes.swift in Sources */,
+				4297CEA22B92555800D46E59 /* TransformationCollectionViewCell.swift in Sources */,
 				4297CDA22B89FD9B00D46E59 /* LoginStatusLoad.swift in Sources */,
 				428DE3662B89284F009A44C1 /* LoginViewController.swift in Sources */,
 				4297CE7C2B90DA0400D46E59 /* HeroesCollectionViewController.swift in Sources */,
