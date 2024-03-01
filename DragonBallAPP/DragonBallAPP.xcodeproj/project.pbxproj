@@ -304,10 +304,10 @@
 		428DE3532B89155B009A44C1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				4297CEA62B9256EE00D46E59 /* Detail */,
 				4297CE802B90FFD000D46E59 /* Splash */,
 				4297CE832B91008000D46E59 /* Login */,
 				4297CE842B91008A00D46E59 /* Heroes */,
+				4297CEA62B9256EE00D46E59 /* Detail */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
