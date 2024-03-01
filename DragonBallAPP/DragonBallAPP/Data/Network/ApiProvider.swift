@@ -72,7 +72,7 @@ final class ApiProvider {
             return
         }
         let request = requestProvider.requestFor(endPoint: .locations, token: token,
-                                                 params: ["id" : id])
+                                                 params: ["id": id])
         makeRequestFor(request: request, completion: completion)
     }
 }

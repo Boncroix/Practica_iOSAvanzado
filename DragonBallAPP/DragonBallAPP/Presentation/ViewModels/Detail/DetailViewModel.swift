@@ -17,20 +17,23 @@ final class DetailViewModel {
     private var apiProvider: ApiProvider
     private var storeDataProvider: StoreDataProvider
     var transformations: [NSMTransformations] = []
+    var hero: NSMHero
     
     //MARK: - Inits
     init(apiProvider: ApiProvider = ApiProvider(),
-         storeDataProvider: StoreDataProvider = StoreDataProvider()) {
+         storeDataProvider: StoreDataProvider = StoreDataProvider(),
+         hero: NSMHero) {
         self.apiProvider = apiProvider
         self.storeDataProvider = storeDataProvider
+        self.hero = hero
     }
     
     //MARK: Load Data
-    func loadData(idHero: String) {
+    func loadData() {
         transformations = storeDataProvider.fetchTransformations(
             sorting: self.sortDescriptor(ascending: true))
         if transformations.isEmpty {
-            self.loadDataFromServices(id: idHero)
+            self.getTransformations(idHero: hero.id)
         } else {
             notifyDataUpdated()
         }
@@ -82,8 +85,8 @@ final class DetailViewModel {
     private func getLocation(idHero: String) {
         apiProvider.getLocationsForHeroWith(id: idHero) { [weak self] result in
             switch result {
-            case .success(let location):
-                self?.storeDataProvider.insert(locations: location)
+            case .success(let locations):
+                self?.storeDataProvider.insert(locations: locations)
             case .failure(let error):
                 print("Error loading location \(error.description)")
             }

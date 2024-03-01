@@ -12,6 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="DragonBallAPP" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="mMU-mt-9R7" id="phr-rJ-YXB"/>
+                <outlet property="descriptionText" destination="PNv-Wf-vDW" id="lye-Zr-1g3"/>
+                <outlet property="loadingView" destination="jYm-ZV-9EO" id="Pki-mR-X9f"/>
+                <outlet property="mapView" destination="ZOd-LB-2WE" id="Enb-ow-CUc"/>
+                <outlet property="nameLabel" destination="ahr-ar-RrQ" id="cu1-db-odp"/>
+                <outlet property="segmentedControl" destination="j0f-I1-2jS" id="kVF-ff-qyC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -93,6 +99,17 @@
                         <segment title="Híbrido"/>
                     </segments>
                 </segmentedControl>
+                <view hidden="YES" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jYm-ZV-9EO" userLabel="LoadingView">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="oMJ-F8-lZL">
+                            <rect key="frame" x="186" y="416" width="20" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" systemColor="systemRedColor"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" name="CustomColor1"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -102,6 +119,8 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8lN-VL-Nwg" secondAttribute="trailing" constant="12" id="6U5-Pd-M5F"/>
                 <constraint firstItem="8lN-VL-Nwg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="Dnf-tN-yII"/>
                 <constraint firstItem="DIV-Q9-RqQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Fho-1F-LTt"/>
+                <constraint firstAttribute="trailing" secondItem="jYm-ZV-9EO" secondAttribute="trailing" id="Iw0-LY-Ev7"/>
+                <constraint firstItem="jYm-ZV-9EO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JeA-rH-Uy6"/>
                 <constraint firstItem="DIV-Q9-RqQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Jm7-MJ-FGq"/>
                 <constraint firstItem="8lN-VL-Nwg" firstAttribute="trailing" secondItem="j0f-I1-2jS" secondAttribute="trailing" constant="8" id="RVe-Q3-F6v"/>
                 <constraint firstItem="DIV-Q9-RqQ" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="T2q-Ox-4Qp"/>
@@ -114,6 +133,8 @@
                 <constraint firstItem="j0f-I1-2jS" firstAttribute="top" secondItem="ahr-ar-RrQ" secondAttribute="bottom" constant="8" id="j7Z-Jc-xzY"/>
                 <constraint firstAttribute="bottom" secondItem="DIV-Q9-RqQ" secondAttribute="bottom" id="nkq-bX-KfD"/>
                 <constraint firstItem="ahr-ar-RrQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="o3n-vO-OBz"/>
+                <constraint firstItem="jYm-ZV-9EO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="x0C-8y-R4G"/>
+                <constraint firstAttribute="bottom" secondItem="jYm-ZV-9EO" secondAttribute="bottom" id="y6F-HW-GhF"/>
             </constraints>
             <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
         </view>
@@ -128,6 +149,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

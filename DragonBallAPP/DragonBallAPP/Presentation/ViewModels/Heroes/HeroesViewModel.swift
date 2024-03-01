@@ -47,6 +47,11 @@ final class HeroesViewModel {
             self.heroesViewState?(.loaded)
         }
     }
+    //MARK: - SelectHero
+    func hero(indexPath: IndexPath) -> NSMHero? {
+        guard indexPath.row < heroes.count else {return nil }
+        return heroes[indexPath.row]
+    }
     
     //MARK: - GetHeroesApi
     private func getHeroes() {

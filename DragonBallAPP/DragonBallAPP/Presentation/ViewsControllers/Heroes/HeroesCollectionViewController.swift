@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HeroesCollectionViewController: UIViewController {
+final class HeroesCollectionViewController: UIViewController {
     
     //MARK: - TypeAlias
     typealias DataSource = UICollectionViewDiffableDataSource<Int, NSMHero>
@@ -18,9 +18,12 @@ class HeroesCollectionViewController: UIViewController {
     @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    //MARK: - BindingViewModel
     private var viewModel: HeroesViewModel
+    
     private var dataSource: DataSource?
     
+    //MARK: Inits
     init(viewModel: HeroesViewModel = HeroesViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: String(describing: HeroesCollectionViewController.self), bundle: nil)
@@ -41,8 +44,9 @@ class HeroesCollectionViewController: UIViewController {
     }
 }
 
-//MARK: - Observers
+//MARK: - Extension
 extension HeroesCollectionViewController {
+    //MARK: - Observers
     private func setObservers() {
         viewModel.heroesViewState = { [weak self] status in
             switch status {
@@ -76,7 +80,9 @@ extension HeroesCollectionViewController {
 //MARK: - Delegate
 extension HeroesCollectionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let nextVC = DetailViewController()
+        guard let hero = viewModel.hero(indexPath: indexPath) else {return}
+        let viewModel = DetailViewModel(hero: hero)
+        let nextVC = DetailViewController(viewModel: viewModel)
         navigationController?.pushViewController(nextVC, animated: true)
     }
 }
