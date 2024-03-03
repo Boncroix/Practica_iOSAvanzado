@@ -143,9 +143,8 @@
 		4297CF032B93AFF300D46E59 /* NSMTransformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEF52B93AFF300D46E59 /* NSMTransformations.swift */; };
 		4297CF042B93AFF300D46E59 /* NSMTransformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEF52B93AFF300D46E59 /* NSMTransformations.swift */; };
 		4297CF052B93AFF300D46E59 /* NSMTransformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEF52B93AFF300D46E59 /* NSMTransformations.swift */; };
-		4297CF132B946B7700D46E59 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CF122B946B7700D46E59 /* MockURLProtocol.swift */; };
-		4297CF142B946B7700D46E59 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CF122B946B7700D46E59 /* MockURLProtocol.swift */; };
-		4297CF152B946B7700D46E59 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CF122B946B7700D46E59 /* MockURLProtocol.swift */; };
+		4297CF182B946FCC00D46E59 /* ApiProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CF172B946FCC00D46E59 /* ApiProviderTests.swift */; };
+		4297CF1A2B946FF000D46E59 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CF192B946FF000D46E59 /* MockURLProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,7 +218,9 @@
 		4297CEF12B93AFF300D46E59 /* NSMHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMHero.swift; sourceTree = "<group>"; };
 		4297CEF32B93AFF300D46E59 /* NSMLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMLocations.swift; sourceTree = "<group>"; };
 		4297CEF52B93AFF300D46E59 /* NSMTransformations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMTransformations.swift; sourceTree = "<group>"; };
-		4297CF122B946B7700D46E59 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		4297CF162B946CE000D46E59 /* MockHeroes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockHeroes.json; sourceTree = "<group>"; };
+		4297CF172B946FCC00D46E59 /* ApiProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProviderTests.swift; sourceTree = "<group>"; };
+		4297CF192B946FF000D46E59 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				4297CF0D2B946A6600D46E59 /* Mock */,
+				4297CF172B946FCC00D46E59 /* ApiProviderTests.swift */,
 			);
 			path = DragonBallAPPTests;
 			sourceTree = "<group>";
@@ -535,7 +537,8 @@
 		4297CF0D2B946A6600D46E59 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				4297CF122B946B7700D46E59 /* MockURLProtocol.swift */,
+				4297CF162B946CE000D46E59 /* MockHeroes.json */,
+				4297CF192B946FF000D46E59 /* MockURLProtocol.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -730,7 +733,6 @@
 				4297CDA02B89FD9B00D46E59 /* LoginStatusLoad.swift in Sources */,
 				428DE3642B89284F009A44C1 /* LoginViewController.swift in Sources */,
 				4297CE7A2B90DA0300D46E59 /* HeroesCollectionViewController.swift in Sources */,
-				4297CF132B946B7700D46E59 /* MockURLProtocol.swift in Sources */,
 				428DE3232B8913E1009A44C1 /* SceneDelegate.swift in Sources */,
 				4297CDB62B8B193B00D46E59 /* NetworkError.swift in Sources */,
 				4297CE372B905E2000D46E59 /* RequestProvider.swift in Sources */,
@@ -744,6 +746,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4297CED32B92FC7600D46E59 /* HeroAnnotation.swift in Sources */,
+				4297CF182B946FCC00D46E59 /* ApiProviderTests.swift in Sources */,
 				4297CE062B8F494A00D46E59 /* StoreDataProvider.swift in Sources */,
 				4297CEBA2B92F48600D46E59 /* DetailTransformationsViewModel.swift in Sources */,
 				4297CDBF2B8B1A2300D46E59 /* HTTPResponseCodes.swift in Sources */,
@@ -761,7 +764,6 @@
 				4297CDD82B8BE16700D46E59 /* HeroesViewModel.swift in Sources */,
 				4297CEA92B92570300D46E59 /* DetailViewModel.swift in Sources */,
 				428DE35F2B891651009A44C1 /* SplashViewController.swift in Sources */,
-				4297CF142B946B7700D46E59 /* MockURLProtocol.swift in Sources */,
 				4297CD9D2B89FAF600D46E59 /* LoginViewModel.swift in Sources */,
 				4297CE382B905E2000D46E59 /* RequestProvider.swift in Sources */,
 				428DE3652B89284F009A44C1 /* LoginViewController.swift in Sources */,
@@ -770,6 +772,7 @@
 				4297CDB32B8B18B200D46E59 /* EndPoints.swift in Sources */,
 				428DE3702B89BFFF009A44C1 /* splashStatusLoad.swift in Sources */,
 				4297CDBB2B8B19AC00D46E59 /* HTTPMethods.swift in Sources */,
+				4297CF1A2B946FF000D46E59 /* MockURLProtocol.swift in Sources */,
 				4297CE302B8F600800D46E59 /* ApiProvider.swift in Sources */,
 				4297CE7B2B90DA0400D46E59 /* HeroesCollectionViewController.swift in Sources */,
 				428DE36C2B89BE86009A44C1 /* SplashViewModel.swift in Sources */,
@@ -820,7 +823,6 @@
 				4297CDA22B89FD9B00D46E59 /* LoginStatusLoad.swift in Sources */,
 				428DE3662B89284F009A44C1 /* LoginViewController.swift in Sources */,
 				4297CE7C2B90DA0400D46E59 /* HeroesCollectionViewController.swift in Sources */,
-				4297CF152B946B7700D46E59 /* MockURLProtocol.swift in Sources */,
 				428DE3422B8913E3009A44C1 /* DragonBallAPPUITests.swift in Sources */,
 				4297CDB82B8B193B00D46E59 /* NetworkError.swift in Sources */,
 				4297CE392B905E2000D46E59 /* RequestProvider.swift in Sources */,
