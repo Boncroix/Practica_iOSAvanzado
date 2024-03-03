@@ -198,10 +198,3 @@ extension DetailViewController {
         }
     }
 }
-
-
-
-
-guard let transformation = viewModel.transformation(indexPath: indexPath) else {return}
-let viewModel = DetailTransformationsViewModel(transformation: transformation)
-let nextVC = DetailTransformationsViewController(viewModel: viewModel)

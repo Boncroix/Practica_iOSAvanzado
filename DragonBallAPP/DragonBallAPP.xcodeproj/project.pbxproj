@@ -10,7 +10,6 @@
 		428DE3212B8913E1009A44C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DE3202B8913E1009A44C1 /* AppDelegate.swift */; };
 		428DE3232B8913E1009A44C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DE3222B8913E1009A44C1 /* SceneDelegate.swift */; };
 		428DE32A2B8913E2009A44C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 428DE3292B8913E2009A44C1 /* Assets.xcassets */; };
-		428DE3382B8913E3009A44C1 /* DragonBallAPPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DE3372B8913E3009A44C1 /* DragonBallAPPTests.swift */; };
 		428DE3422B8913E3009A44C1 /* DragonBallAPPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DE3412B8913E3009A44C1 /* DragonBallAPPUITests.swift */; };
 		428DE3442B8913E3009A44C1 /* DragonBallAPPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DE3432B8913E3009A44C1 /* DragonBallAPPUITestsLaunchTests.swift */; };
 		428DE35D2B891643009A44C1 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428DE35B2B891643009A44C1 /* SplashViewController.swift */; };
@@ -144,6 +143,9 @@
 		4297CF032B93AFF300D46E59 /* NSMTransformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEF52B93AFF300D46E59 /* NSMTransformations.swift */; };
 		4297CF042B93AFF300D46E59 /* NSMTransformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEF52B93AFF300D46E59 /* NSMTransformations.swift */; };
 		4297CF052B93AFF300D46E59 /* NSMTransformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEF52B93AFF300D46E59 /* NSMTransformations.swift */; };
+		4297CF132B946B7700D46E59 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CF122B946B7700D46E59 /* MockURLProtocol.swift */; };
+		4297CF142B946B7700D46E59 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CF122B946B7700D46E59 /* MockURLProtocol.swift */; };
+		4297CF152B946B7700D46E59 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CF122B946B7700D46E59 /* MockURLProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,7 +172,6 @@
 		428DE3292B8913E2009A44C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		428DE32E2B8913E2009A44C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		428DE3332B8913E3009A44C1 /* DragonBallAPPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DragonBallAPPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		428DE3372B8913E3009A44C1 /* DragonBallAPPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragonBallAPPTests.swift; sourceTree = "<group>"; };
 		428DE33D2B8913E3009A44C1 /* DragonBallAPPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DragonBallAPPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		428DE3412B8913E3009A44C1 /* DragonBallAPPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragonBallAPPUITests.swift; sourceTree = "<group>"; };
 		428DE3432B8913E3009A44C1 /* DragonBallAPPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragonBallAPPUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -218,6 +219,7 @@
 		4297CEF12B93AFF300D46E59 /* NSMHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMHero.swift; sourceTree = "<group>"; };
 		4297CEF32B93AFF300D46E59 /* NSMLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMLocations.swift; sourceTree = "<group>"; };
 		4297CEF52B93AFF300D46E59 /* NSMTransformations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMTransformations.swift; sourceTree = "<group>"; };
+		4297CF122B946B7700D46E59 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,7 +287,7 @@
 		428DE3362B8913E3009A44C1 /* DragonBallAPPTests */ = {
 			isa = PBXGroup;
 			children = (
-				428DE3372B8913E3009A44C1 /* DragonBallAPPTests.swift */,
+				4297CF0D2B946A6600D46E59 /* Mock */,
 			);
 			path = DragonBallAPPTests;
 			sourceTree = "<group>";
@@ -530,6 +532,14 @@
 			path = DetailTransformations;
 			sourceTree = "<group>";
 		};
+		4297CF0D2B946A6600D46E59 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				4297CF122B946B7700D46E59 /* MockURLProtocol.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -720,6 +730,7 @@
 				4297CDA02B89FD9B00D46E59 /* LoginStatusLoad.swift in Sources */,
 				428DE3642B89284F009A44C1 /* LoginViewController.swift in Sources */,
 				4297CE7A2B90DA0300D46E59 /* HeroesCollectionViewController.swift in Sources */,
+				4297CF132B946B7700D46E59 /* MockURLProtocol.swift in Sources */,
 				428DE3232B8913E1009A44C1 /* SceneDelegate.swift in Sources */,
 				4297CDB62B8B193B00D46E59 /* NetworkError.swift in Sources */,
 				4297CE372B905E2000D46E59 /* RequestProvider.swift in Sources */,
@@ -741,7 +752,6 @@
 				4297CF042B93AFF300D46E59 /* NSMTransformations.swift in Sources */,
 				4297CDCF2B8BA9B300D46E59 /* SecureDataKeychain.swift in Sources */,
 				4297CE3C2B90650700D46E59 /* Location.swift in Sources */,
-				428DE3382B8913E3009A44C1 /* DragonBallAPPTests.swift in Sources */,
 				4297CED72B92FF4F00D46E59 /* HeroAnnotationView.swift in Sources */,
 				4297CDA12B89FD9B00D46E59 /* LoginStatusLoad.swift in Sources */,
 				4297CE4D2B90B1F900D46E59 /* UiimageView.swift in Sources */,
@@ -751,6 +761,7 @@
 				4297CDD82B8BE16700D46E59 /* HeroesViewModel.swift in Sources */,
 				4297CEA92B92570300D46E59 /* DetailViewModel.swift in Sources */,
 				428DE35F2B891651009A44C1 /* SplashViewController.swift in Sources */,
+				4297CF142B946B7700D46E59 /* MockURLProtocol.swift in Sources */,
 				4297CD9D2B89FAF600D46E59 /* LoginViewModel.swift in Sources */,
 				4297CE382B905E2000D46E59 /* RequestProvider.swift in Sources */,
 				428DE3652B89284F009A44C1 /* LoginViewController.swift in Sources */,
@@ -809,6 +820,7 @@
 				4297CDA22B89FD9B00D46E59 /* LoginStatusLoad.swift in Sources */,
 				428DE3662B89284F009A44C1 /* LoginViewController.swift in Sources */,
 				4297CE7C2B90DA0400D46E59 /* HeroesCollectionViewController.swift in Sources */,
+				4297CF152B946B7700D46E59 /* MockURLProtocol.swift in Sources */,
 				428DE3422B8913E3009A44C1 /* DragonBallAPPUITests.swift in Sources */,
 				4297CDB82B8B193B00D46E59 /* NetworkError.swift in Sources */,
 				4297CE392B905E2000D46E59 /* RequestProvider.swift in Sources */,
