@@ -9,8 +9,8 @@ import Foundation
 
 // MARK: - Hero
 struct Hero: Decodable, Hashable {
-    let name, id: String
-    let favorite: Bool?
+    let id: String
+    let name: String?
     let photo: String?
     let description: String?
 }

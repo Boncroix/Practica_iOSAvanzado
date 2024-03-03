@@ -21,9 +21,11 @@ final class DetailViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var transformationsView: UIView!
     
     private var viewModel: DetailViewModel
     private var dataSource: DataSource?
+    private let locationManager = CLLocationManager()
     
     //MARK: Inits
     init(viewModel: DetailViewModel) {
@@ -39,23 +41,26 @@ final class DetailViewController: UIViewController {
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.loadData()
+        checkLocationAuthorizationStatus()
         setObservers()
+        viewModel.loadData()
         collectionView.delegate = self
     }
 }
 
-//MARK: - Extension
+//MARK: - Observers
 extension DetailViewController {
-    //MARK: - Observers
     private func setObservers() {
         viewModel.detailViewState = { [weak self] status in
             switch status {
             case .loading(let isLoading):
                 self?.loadingView.isHidden = !isLoading
             case .loaded:
-                self?.setUpCollectionView()
                 self?.loadingView.isHidden = true
+                self?.configureUI()
+                self?.setUpCollectionView()
+                self?.updateDataInterface()
+                
             case .errorNetwork(let errorMessage):
                 self?.loadingView.isHidden = true
                 print(errorMessage)
@@ -64,10 +69,80 @@ extension DetailViewController {
     }
 }
 
-//MARK: - Delegate
+//MARK: - MapView
+extension DetailViewController: MKMapViewDelegate {
+    
+    private func configureUI() {
+        nameLabel.text = viewModel.hero.name
+        descriptionText.text = viewModel.hero.descrip
+        mapView.delegate = self
+        mapView.showsUserTrackingButton = true
+    }
+    
+    private func updateDataInterface() {
+        addAnnotations()
+        if let annotation = mapView.annotations.first {
+            let region = MKCoordinateRegion(center: annotation.coordinate,
+                                            latitudinalMeters: 100000,
+                                            longitudinalMeters: 100000)
+            mapView.region = region
+        }
+    }
+    
+    private func addAnnotations() {
+        var annotations = [HeroAnnotation]()
+        let name = viewModel.hero.name
+        let id = viewModel.hero.id
+        for location in viewModel.locations {
+            annotations.append(
+                HeroAnnotation.init(coordinate: .init(latitude: Double(location.latitude ?? "") ?? 0.0,
+                                                      longitude: Double(location.longitude ?? "") ?? 0.0),
+                                    title: name,
+                                    id: id,
+                                    date: location.date)
+            )
+        }
+        mapView.addAnnotations(annotations)
+    }
+    
+    func checkLocationAuthorizationStatus() {
+        let status = locationManager.authorizationStatus
+        switch status {
+        case .notDetermined: locationManager.requestWhenInUseAuthorization()
+        case .denied, .restricted: mapView.showsUserLocation = false
+        case .authorizedAlways, .authorizedWhenInUse: mapView.showsUserLocation = true
+            locationManager.startUpdatingLocation()
+        @unknown default:
+            break
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
+        guard let heroAnnotation = annotation as? HeroAnnotation else {
+            return
+        }
+        debugPrint("Annotation selected of hero \(heroAnnotation.title ?? "")")
+        debugPrint("Located on  \(heroAnnotation.date ?? "")")
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard let heroAnnotation = annotation as? HeroAnnotation else {
+            return nil
+        }
+
+        if let annotation = mapView.dequeueReusableAnnotationView(withIdentifier: HeroAnnotationView.reuseIdentifier) {
+            return annotation
+        }
+        return HeroAnnotationView.init(annotation: annotation, reuseIdentifier: HeroAnnotationView.reuseIdentifier)
+    }
+}
+
+//MARK: - Delegate CollectionView
 extension DetailViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //TODO
+        guard let transformation = viewModel.transformation(indexPath: indexPath) else {return}
+        let viewModel = DetailTransformationsViewModel(transformation: transformation)
+        let nextVC = DetailTransformationsViewController(viewModel: viewModel)
     }
 }
 
@@ -75,7 +150,8 @@ extension DetailViewController: UICollectionViewDelegate {
 extension DetailViewController {
     func setUpCollectionView() {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 120, height: 120)
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 300, height: 150)
         collectionView.collectionViewLayout = layout
         
         let registration = UICollectionView.CellRegistration<TransformationCollectionViewCell, NSMTransformations>(

@@ -2,7 +2,7 @@
 //  NSMHero+CoreDataClass.swift
 //  DragonBallAPP
 //
-//  Created by Jose Bueno Cruz on 28/2/24.
+//  Created by Jose Bueno Cruz on 2/3/24.
 //
 //
 
@@ -20,29 +20,46 @@ extension NSMHero {
         return NSFetchRequest<NSMHero>(entityName: "Hero")
     }
 
-    @NSManaged public var name: String
+    @NSManaged public var name: String?
     @NSManaged public var id: String
-    @NSManaged public var favorite: Bool
     @NSManaged public var photo: String?
     @NSManaged public var descrip: String?
-    @NSManaged public var transformations: Set<NSMTransformations>?
+    @NSManaged public var heroToTransformations: Set<NSMTransformations>?
+    @NSManaged public var heroToLocations: Set<NSMLocations>?
 
 }
 
-// MARK: Generated accessors for transformations
+// MARK: Generated accessors for hetoToTransformations
 extension NSMHero {
 
-    @objc(addTransformationsObject:)
-    @NSManaged public func addToTransformations(_ value: NSMTransformations)
+    @objc(addHetoToTransformationsObject:)
+    @NSManaged public func addToHetoToTransformations(_ value: NSMTransformations)
 
-    @objc(removeTransformationsObject:)
-    @NSManaged public func removeFromTransformations(_ value: NSMTransformations)
+    @objc(removeHetoToTransformationsObject:)
+    @NSManaged public func removeFromHetoToTransformations(_ value: NSMTransformations)
 
-    @objc(addTransformations:)
-    @NSManaged public func addToTransformations(_ values: Set<NSMTransformations>)
+    @objc(addHetoToTransformations:)
+    @NSManaged public func addToHetoToTransformations(_ values: Set<NSMTransformations>)
 
-    @objc(removeTransformations:)
-    @NSManaged public func removeFromTransformations(_ values: Set<NSMTransformations>)
+    @objc(removeHetoToTransformations:)
+    @NSManaged public func removeFromHetoToTransformations(_ values: Set<NSMTransformations>)
+
+}
+
+// MARK: Generated accessors for heroToLocations
+extension NSMHero {
+
+    @objc(addHeroToLocationsObject:)
+    @NSManaged public func addToHeroToLocations(_ value: NSMLocations)
+
+    @objc(removeHeroToLocationsObject:)
+    @NSManaged public func removeFromHeroToLocations(_ value: NSMLocations)
+
+    @objc(addHeroToLocations:)
+    @NSManaged public func addToHeroToLocations(_ values: Set<NSMLocations>)
+
+    @objc(removeHeroToLocations:)
+    @NSManaged public func removeFromHeroToLocations(_ values: Set<NSMLocations>)
 
 }
 

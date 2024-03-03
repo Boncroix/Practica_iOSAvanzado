@@ -69,12 +69,6 @@
 		4297CE052B8F494A00D46E59 /* StoreDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CE042B8F494A00D46E59 /* StoreDataProvider.swift */; };
 		4297CE062B8F494A00D46E59 /* StoreDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CE042B8F494A00D46E59 /* StoreDataProvider.swift */; };
 		4297CE072B8F494A00D46E59 /* StoreDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CE042B8F494A00D46E59 /* StoreDataProvider.swift */; };
-		4297CE1D2B8F526800D46E59 /* NSMHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CE192B8F526800D46E59 /* NSMHero.swift */; };
-		4297CE1E2B8F526800D46E59 /* NSMHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CE192B8F526800D46E59 /* NSMHero.swift */; };
-		4297CE1F2B8F526800D46E59 /* NSMHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CE192B8F526800D46E59 /* NSMHero.swift */; };
-		4297CE232B8F526800D46E59 /* NSMTransformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CE1B2B8F526800D46E59 /* NSMTransformations.swift */; };
-		4297CE242B8F526800D46E59 /* NSMTransformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CE1B2B8F526800D46E59 /* NSMTransformations.swift */; };
-		4297CE252B8F526800D46E59 /* NSMTransformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CE1B2B8F526800D46E59 /* NSMTransformations.swift */; };
 		4297CE2B2B8F542700D46E59 /* Transformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CE2A2B8F542700D46E59 /* Transformation.swift */; };
 		4297CE2C2B8F542700D46E59 /* Transformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CE2A2B8F542700D46E59 /* Transformation.swift */; };
 		4297CE2D2B8F542700D46E59 /* Transformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CE2A2B8F542700D46E59 /* Transformation.swift */; };
@@ -123,9 +117,33 @@
 		4297CEAC2B92573D00D46E59 /* DetailStatusLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEAB2B92573D00D46E59 /* DetailStatusLoad.swift */; };
 		4297CEAD2B92573D00D46E59 /* DetailStatusLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEAB2B92573D00D46E59 /* DetailStatusLoad.swift */; };
 		4297CEAE2B92573D00D46E59 /* DetailStatusLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEAB2B92573D00D46E59 /* DetailStatusLoad.swift */; };
-		4297CEB12B925BF100D46E59 /* NSMLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEAF2B925BF100D46E59 /* NSMLocations.swift */; };
-		4297CEB22B925BF100D46E59 /* NSMLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEAF2B925BF100D46E59 /* NSMLocations.swift */; };
-		4297CEB32B925BF100D46E59 /* NSMLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEAF2B925BF100D46E59 /* NSMLocations.swift */; };
+		4297CEB92B92F48600D46E59 /* DetailTransformationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEB82B92F48600D46E59 /* DetailTransformationsViewModel.swift */; };
+		4297CEBA2B92F48600D46E59 /* DetailTransformationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEB82B92F48600D46E59 /* DetailTransformationsViewModel.swift */; };
+		4297CEBB2B92F48600D46E59 /* DetailTransformationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEB82B92F48600D46E59 /* DetailTransformationsViewModel.swift */; };
+		4297CEC72B92F59700D46E59 /* DetailTransformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEC52B92F59700D46E59 /* DetailTransformationsViewController.swift */; };
+		4297CEC82B92F59700D46E59 /* DetailTransformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEC52B92F59700D46E59 /* DetailTransformationsViewController.swift */; };
+		4297CEC92B92F59700D46E59 /* DetailTransformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEC52B92F59700D46E59 /* DetailTransformationsViewController.swift */; };
+		4297CECA2B92F59700D46E59 /* DetailTransformationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4297CEC62B92F59700D46E59 /* DetailTransformationsViewController.xib */; };
+		4297CECB2B92F59700D46E59 /* DetailTransformationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4297CEC62B92F59700D46E59 /* DetailTransformationsViewController.xib */; };
+		4297CECC2B92F59700D46E59 /* DetailTransformationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4297CEC62B92F59700D46E59 /* DetailTransformationsViewController.xib */; };
+		4297CECE2B92F5C000D46E59 /* DetailTransformationsStatusLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CECD2B92F5C000D46E59 /* DetailTransformationsStatusLoad.swift */; };
+		4297CECF2B92F5C000D46E59 /* DetailTransformationsStatusLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CECD2B92F5C000D46E59 /* DetailTransformationsStatusLoad.swift */; };
+		4297CED02B92F5C000D46E59 /* DetailTransformationsStatusLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CECD2B92F5C000D46E59 /* DetailTransformationsStatusLoad.swift */; };
+		4297CED22B92FC7600D46E59 /* HeroAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CED12B92FC7600D46E59 /* HeroAnnotation.swift */; };
+		4297CED32B92FC7600D46E59 /* HeroAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CED12B92FC7600D46E59 /* HeroAnnotation.swift */; };
+		4297CED42B92FC7600D46E59 /* HeroAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CED12B92FC7600D46E59 /* HeroAnnotation.swift */; };
+		4297CED62B92FF4F00D46E59 /* HeroAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CED52B92FF4F00D46E59 /* HeroAnnotationView.swift */; };
+		4297CED72B92FF4F00D46E59 /* HeroAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CED52B92FF4F00D46E59 /* HeroAnnotationView.swift */; };
+		4297CED82B92FF4F00D46E59 /* HeroAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CED52B92FF4F00D46E59 /* HeroAnnotationView.swift */; };
+		4297CEF72B93AFF300D46E59 /* NSMHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEF12B93AFF300D46E59 /* NSMHero.swift */; };
+		4297CEF82B93AFF300D46E59 /* NSMHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEF12B93AFF300D46E59 /* NSMHero.swift */; };
+		4297CEF92B93AFF300D46E59 /* NSMHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEF12B93AFF300D46E59 /* NSMHero.swift */; };
+		4297CEFD2B93AFF300D46E59 /* NSMLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEF32B93AFF300D46E59 /* NSMLocations.swift */; };
+		4297CEFE2B93AFF300D46E59 /* NSMLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEF32B93AFF300D46E59 /* NSMLocations.swift */; };
+		4297CEFF2B93AFF300D46E59 /* NSMLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEF32B93AFF300D46E59 /* NSMLocations.swift */; };
+		4297CF032B93AFF300D46E59 /* NSMTransformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEF52B93AFF300D46E59 /* NSMTransformations.swift */; };
+		4297CF042B93AFF300D46E59 /* NSMTransformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEF52B93AFF300D46E59 /* NSMTransformations.swift */; };
+		4297CF052B93AFF300D46E59 /* NSMTransformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CEF52B93AFF300D46E59 /* NSMTransformations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,8 +193,6 @@
 		4297CDF32B8F457F00D46E59 /* HeroesStatusLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesStatusLoad.swift; sourceTree = "<group>"; };
 		4297CDFC2B8F46B700D46E59 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		4297CE042B8F494A00D46E59 /* StoreDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataProvider.swift; sourceTree = "<group>"; };
-		4297CE192B8F526800D46E59 /* NSMHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMHero.swift; sourceTree = "<group>"; };
-		4297CE1B2B8F526800D46E59 /* NSMTransformations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMTransformations.swift; sourceTree = "<group>"; };
 		4297CE2A2B8F542700D46E59 /* Transformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transformation.swift; sourceTree = "<group>"; };
 		4297CE2E2B8F600800D46E59 /* ApiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProvider.swift; sourceTree = "<group>"; };
 		4297CE362B905E2000D46E59 /* RequestProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProvider.swift; sourceTree = "<group>"; };
@@ -193,7 +209,15 @@
 		4297CE9F2B92555800D46E59 /* TransformationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransformationCollectionViewCell.xib; sourceTree = "<group>"; };
 		4297CEA72B92570300D46E59 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		4297CEAB2B92573D00D46E59 /* DetailStatusLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailStatusLoad.swift; sourceTree = "<group>"; };
-		4297CEAF2B925BF100D46E59 /* NSMLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMLocations.swift; sourceTree = "<group>"; };
+		4297CEB82B92F48600D46E59 /* DetailTransformationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTransformationsViewModel.swift; sourceTree = "<group>"; };
+		4297CEC52B92F59700D46E59 /* DetailTransformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTransformationsViewController.swift; sourceTree = "<group>"; };
+		4297CEC62B92F59700D46E59 /* DetailTransformationsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTransformationsViewController.xib; sourceTree = "<group>"; };
+		4297CECD2B92F5C000D46E59 /* DetailTransformationsStatusLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTransformationsStatusLoad.swift; sourceTree = "<group>"; };
+		4297CED12B92FC7600D46E59 /* HeroAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroAnnotation.swift; sourceTree = "<group>"; };
+		4297CED52B92FF4F00D46E59 /* HeroAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroAnnotationView.swift; sourceTree = "<group>"; };
+		4297CEF12B93AFF300D46E59 /* NSMHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMHero.swift; sourceTree = "<group>"; };
+		4297CEF32B93AFF300D46E59 /* NSMLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMLocations.swift; sourceTree = "<group>"; };
+		4297CEF52B93AFF300D46E59 /* NSMTransformations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMTransformations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +332,7 @@
 				4297CE832B91008000D46E59 /* Login */,
 				4297CE842B91008A00D46E59 /* Heroes */,
 				4297CEA62B9256EE00D46E59 /* Detail */,
+				4297CEB72B92F44500D46E59 /* DetailTransformations */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -319,6 +344,7 @@
 				428DE3612B89282F009A44C1 /* Login */,
 				4297CDA32B8A218F00D46E59 /* Heroes */,
 				4297CE4F2B90C71500D46E59 /* DetailHeroes */,
+				4297CEBC2B92F4FE00D46E59 /* DetailTransformations */,
 			);
 			path = ViewsControllers;
 			sourceTree = "<group>";
@@ -333,6 +359,9 @@
 				4297CE2A2B8F542700D46E59 /* Transformation.swift */,
 				4297CE3A2B90650700D46E59 /* Location.swift */,
 				4297CEAB2B92573D00D46E59 /* DetailStatusLoad.swift */,
+				4297CECD2B92F5C000D46E59 /* DetailTransformationsStatusLoad.swift */,
+				4297CED12B92FC7600D46E59 /* HeroAnnotation.swift */,
+				4297CED52B92FF4F00D46E59 /* HeroAnnotationView.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -417,9 +446,9 @@
 			children = (
 				4297CDFB2B8F46B700D46E59 /* Model.xcdatamodeld */,
 				4297CE042B8F494A00D46E59 /* StoreDataProvider.swift */,
-				4297CE192B8F526800D46E59 /* NSMHero.swift */,
-				4297CE1B2B8F526800D46E59 /* NSMTransformations.swift */,
-				4297CEAF2B925BF100D46E59 /* NSMLocations.swift */,
+				4297CEF12B93AFF300D46E59 /* NSMHero.swift */,
+				4297CEF32B93AFF300D46E59 /* NSMLocations.swift */,
+				4297CEF52B93AFF300D46E59 /* NSMTransformations.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -482,6 +511,23 @@
 				4297CEA72B92570300D46E59 /* DetailViewModel.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		4297CEB72B92F44500D46E59 /* DetailTransformations */ = {
+			isa = PBXGroup;
+			children = (
+				4297CEB82B92F48600D46E59 /* DetailTransformationsViewModel.swift */,
+			);
+			path = DetailTransformations;
+			sourceTree = "<group>";
+		};
+		4297CEBC2B92F4FE00D46E59 /* DetailTransformations */ = {
+			isa = PBXGroup;
+			children = (
+				4297CEC52B92F59700D46E59 /* DetailTransformationsViewController.swift */,
+				4297CEC62B92F59700D46E59 /* DetailTransformationsViewController.xib */,
+			);
+			path = DetailTransformations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -596,6 +642,7 @@
 			files = (
 				428DE35E2B891643009A44C1 /* SplashViewController.xib in Resources */,
 				4297CE592B90C79C00D46E59 /* DetailViewController.xib in Resources */,
+				4297CECA2B92F59700D46E59 /* DetailTransformationsViewController.xib in Resources */,
 				428DE3672B89284F009A44C1 /* LoginViewController.xib in Resources */,
 				4297CEA32B92555800D46E59 /* TransformationCollectionViewCell.xib in Resources */,
 				4297CE7D2B90DA0400D46E59 /* HeroesCollectionViewController.xib in Resources */,
@@ -609,6 +656,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4297CECB2B92F59700D46E59 /* DetailTransformationsViewController.xib in Resources */,
 				428DE3682B89284F009A44C1 /* LoginViewController.xib in Resources */,
 				4297CE492B90B16C00D46E59 /* HeroCollectionViewCell.xib in Resources */,
 				4297CE5A2B90C79C00D46E59 /* DetailViewController.xib in Resources */,
@@ -622,6 +670,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4297CECC2B92F59700D46E59 /* DetailTransformationsViewController.xib in Resources */,
 				428DE3692B89284F009A44C1 /* LoginViewController.xib in Resources */,
 				4297CE4A2B90B16C00D46E59 /* HeroCollectionViewCell.xib in Resources */,
 				4297CE5B2B90C79C00D46E59 /* DetailViewController.xib in Resources */,
@@ -640,16 +689,22 @@
 			files = (
 				4297CD9C2B89FAF600D46E59 /* LoginViewModel.swift in Sources */,
 				428DE35D2B891643009A44C1 /* SplashViewController.swift in Sources */,
-				4297CE232B8F526800D46E59 /* NSMTransformations.swift in Sources */,
 				4297CE2F2B8F600800D46E59 /* ApiProvider.swift in Sources */,
 				428DE36B2B89BE86009A44C1 /* SplashViewModel.swift in Sources */,
+				4297CEF72B93AFF300D46E59 /* NSMHero.swift in Sources */,
 				4297CE3B2B90650700D46E59 /* Location.swift in Sources */,
 				4297CE2B2B8F542700D46E59 /* Transformation.swift in Sources */,
 				4297CDD72B8BE16700D46E59 /* HeroesViewModel.swift in Sources */,
+				4297CEC72B92F59700D46E59 /* DetailTransformationsViewController.swift in Sources */,
+				4297CED62B92FF4F00D46E59 /* HeroAnnotationView.swift in Sources */,
+				4297CECE2B92F5C000D46E59 /* DetailTransformationsStatusLoad.swift in Sources */,
+				4297CF032B93AFF300D46E59 /* NSMTransformations.swift in Sources */,
+				4297CEFD2B93AFF300D46E59 /* NSMLocations.swift in Sources */,
 				4297CEAC2B92573D00D46E59 /* DetailStatusLoad.swift in Sources */,
 				4297CE562B90C79C00D46E59 /* DetailViewController.swift in Sources */,
 				4297CE052B8F494A00D46E59 /* StoreDataProvider.swift in Sources */,
 				4297CE452B90B16C00D46E59 /* HeroCollectionViewCell.swift in Sources */,
+				4297CED22B92FC7600D46E59 /* HeroAnnotation.swift in Sources */,
 				4297CDE82B8F302200D46E59 /* Hero.swift in Sources */,
 				4297CE4C2B90B1F900D46E59 /* UiimageView.swift in Sources */,
 				4297CEA82B92570300D46E59 /* DetailViewModel.swift in Sources */,
@@ -658,8 +713,7 @@
 				4297CDF42B8F457F00D46E59 /* HeroesStatusLoad.swift in Sources */,
 				428DE3212B8913E1009A44C1 /* AppDelegate.swift in Sources */,
 				4297CDBA2B8B19AC00D46E59 /* HTTPMethods.swift in Sources */,
-				4297CE1D2B8F526800D46E59 /* NSMHero.swift in Sources */,
-				4297CEB12B925BF100D46E59 /* NSMLocations.swift in Sources */,
+				4297CEB92B92F48600D46E59 /* DetailTransformationsViewModel.swift in Sources */,
 				4297CDDC2B8D01E500D46E59 /* UIViewController.swift in Sources */,
 				4297CDBE2B8B1A2300D46E59 /* HTTPResponseCodes.swift in Sources */,
 				4297CEA02B92555800D46E59 /* TransformationCollectionViewCell.swift in Sources */,
@@ -678,16 +732,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4297CED32B92FC7600D46E59 /* HeroAnnotation.swift in Sources */,
 				4297CE062B8F494A00D46E59 /* StoreDataProvider.swift in Sources */,
+				4297CEBA2B92F48600D46E59 /* DetailTransformationsViewModel.swift in Sources */,
 				4297CDBF2B8B1A2300D46E59 /* HTTPResponseCodes.swift in Sources */,
 				4297CEA12B92555800D46E59 /* TransformationCollectionViewCell.swift in Sources */,
-				4297CE1E2B8F526800D46E59 /* NSMHero.swift in Sources */,
+				4297CEF82B93AFF300D46E59 /* NSMHero.swift in Sources */,
+				4297CF042B93AFF300D46E59 /* NSMTransformations.swift in Sources */,
 				4297CDCF2B8BA9B300D46E59 /* SecureDataKeychain.swift in Sources */,
 				4297CE3C2B90650700D46E59 /* Location.swift in Sources */,
 				428DE3382B8913E3009A44C1 /* DragonBallAPPTests.swift in Sources */,
+				4297CED72B92FF4F00D46E59 /* HeroAnnotationView.swift in Sources */,
 				4297CDA12B89FD9B00D46E59 /* LoginStatusLoad.swift in Sources */,
 				4297CE4D2B90B1F900D46E59 /* UiimageView.swift in Sources */,
-				4297CE242B8F526800D46E59 /* NSMTransformations.swift in Sources */,
+				4297CEC82B92F59700D46E59 /* DetailTransformationsViewController.swift in Sources */,
 				4297CE2C2B8F542700D46E59 /* Transformation.swift in Sources */,
 				4297CE462B90B16C00D46E59 /* HeroCollectionViewCell.swift in Sources */,
 				4297CDD82B8BE16700D46E59 /* HeroesViewModel.swift in Sources */,
@@ -696,8 +754,8 @@
 				4297CD9D2B89FAF600D46E59 /* LoginViewModel.swift in Sources */,
 				4297CE382B905E2000D46E59 /* RequestProvider.swift in Sources */,
 				428DE3652B89284F009A44C1 /* LoginViewController.swift in Sources */,
-				4297CEB22B925BF100D46E59 /* NSMLocations.swift in Sources */,
 				4297CDE92B8F302200D46E59 /* Hero.swift in Sources */,
+				4297CEFE2B93AFF300D46E59 /* NSMLocations.swift in Sources */,
 				4297CDB32B8B18B200D46E59 /* EndPoints.swift in Sources */,
 				428DE3702B89BFFF009A44C1 /* splashStatusLoad.swift in Sources */,
 				4297CDBB2B8B19AC00D46E59 /* HTTPMethods.swift in Sources */,
@@ -708,6 +766,7 @@
 				4297CDDD2B8D01E500D46E59 /* UIViewController.swift in Sources */,
 				4297CDF52B8F457F00D46E59 /* HeroesStatusLoad.swift in Sources */,
 				4297CEAD2B92573D00D46E59 /* DetailStatusLoad.swift in Sources */,
+				4297CECF2B92F5C000D46E59 /* DetailTransformationsStatusLoad.swift in Sources */,
 				4297CDB72B8B193B00D46E59 /* NetworkError.swift in Sources */,
 				4297CE572B90C79C00D46E59 /* DetailViewController.swift in Sources */,
 			);
@@ -719,16 +778,22 @@
 			files = (
 				4297CD9E2B89FAF600D46E59 /* LoginViewModel.swift in Sources */,
 				428DE3602B891651009A44C1 /* SplashViewController.swift in Sources */,
-				4297CE252B8F526800D46E59 /* NSMTransformations.swift in Sources */,
 				4297CE312B8F600800D46E59 /* ApiProvider.swift in Sources */,
 				428DE36D2B89BE86009A44C1 /* SplashViewModel.swift in Sources */,
+				4297CEF92B93AFF300D46E59 /* NSMHero.swift in Sources */,
 				4297CE3D2B90650700D46E59 /* Location.swift in Sources */,
 				4297CE2D2B8F542700D46E59 /* Transformation.swift in Sources */,
 				4297CDD92B8BE16700D46E59 /* HeroesViewModel.swift in Sources */,
+				4297CEC92B92F59700D46E59 /* DetailTransformationsViewController.swift in Sources */,
+				4297CED82B92FF4F00D46E59 /* HeroAnnotationView.swift in Sources */,
+				4297CED02B92F5C000D46E59 /* DetailTransformationsStatusLoad.swift in Sources */,
+				4297CF052B93AFF300D46E59 /* NSMTransformations.swift in Sources */,
+				4297CEFF2B93AFF300D46E59 /* NSMLocations.swift in Sources */,
 				4297CEAE2B92573D00D46E59 /* DetailStatusLoad.swift in Sources */,
 				4297CE582B90C79C00D46E59 /* DetailViewController.swift in Sources */,
 				4297CE072B8F494A00D46E59 /* StoreDataProvider.swift in Sources */,
 				4297CE472B90B16C00D46E59 /* HeroCollectionViewCell.swift in Sources */,
+				4297CED42B92FC7600D46E59 /* HeroAnnotation.swift in Sources */,
 				4297CDEA2B8F302200D46E59 /* Hero.swift in Sources */,
 				4297CE4E2B90B1F900D46E59 /* UiimageView.swift in Sources */,
 				4297CEAA2B92570300D46E59 /* DetailViewModel.swift in Sources */,
@@ -737,8 +802,7 @@
 				4297CDF62B8F457F00D46E59 /* HeroesStatusLoad.swift in Sources */,
 				428DE3442B8913E3009A44C1 /* DragonBallAPPUITestsLaunchTests.swift in Sources */,
 				4297CDBC2B8B19AC00D46E59 /* HTTPMethods.swift in Sources */,
-				4297CE1F2B8F526800D46E59 /* NSMHero.swift in Sources */,
-				4297CEB32B925BF100D46E59 /* NSMLocations.swift in Sources */,
+				4297CEBB2B92F48600D46E59 /* DetailTransformationsViewModel.swift in Sources */,
 				4297CDDE2B8D01E500D46E59 /* UIViewController.swift in Sources */,
 				4297CDC02B8B1A2300D46E59 /* HTTPResponseCodes.swift in Sources */,
 				4297CEA22B92555800D46E59 /* TransformationCollectionViewCell.swift in Sources */,

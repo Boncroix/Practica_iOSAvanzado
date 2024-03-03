@@ -60,7 +60,6 @@ extension StoreDataProvider {
                 newHero.id = hero.id
                 newHero.name = hero.name
                 newHero.photo = hero.photo
-                newHero.favorite = hero.favorite ?? false
                 newHero.descrip = hero.description
             }
             self.saveContext()
@@ -119,6 +118,7 @@ extension StoreDataProvider {
             return []
         }
     }
+
     
     func insert(locations: [Location]) {
         context.performAndWait {

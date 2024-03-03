@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailTransformationsViewController" customModule="DragonBallAPP" customModuleProvider="target">
+            <connections>
+                <outlet property="descriptionTransformation" destination="r7m-h7-jgN" id="qeg-eI-ciE"/>
+                <outlet property="imageTransformation" destination="RxR-Bx-XN9" id="Alo-44-UIJ"/>
+                <outlet property="nameLabel" destination="PIk-TN-Dzh" id="yrq-Ua-eiu"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fondo4" translatesAutoresizingMaskIntoConstraints="NO" id="kSQ-PB-OFl">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                </imageView>
+                <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qFq-xg-55a" userLabel="Filter View">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <color key="backgroundColor" name="CustomColor1"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Transformations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIk-TN-Dzh">
+                    <rect key="frame" x="69.666666666666686" y="58.999999999999993" width="254" height="28.666666666666664"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                    <color key="textColor" name="CustomColor2"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dRs-UE-iXS" userLabel="Stack 11111">
+                    <rect key="frame" x="12" y="87.666666666666686" width="369" height="730.33333333333326"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RxR-Bx-XN9">
+                            <rect key="frame" x="0.0" y="0.0" width="369" height="365.33333333333331"/>
+                        </imageView>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r7m-h7-jgN">
+                            <rect key="frame" x="0.0" y="365.33333333333326" width="369" height="365"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                            <color key="textColor" systemColor="labelColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="kSQ-PB-OFl" secondAttribute="trailing" id="9ek-Af-OUm"/>
+                <constraint firstItem="qFq-xg-55a" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="D1V-I1-Wn9"/>
+                <constraint firstItem="dRs-UE-iXS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="G74-py-m3E"/>
+                <constraint firstAttribute="trailing" secondItem="dRs-UE-iXS" secondAttribute="trailing" constant="12" id="GNp-UX-jyh"/>
+                <constraint firstItem="PIk-TN-Dzh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="NQu-82-JOd"/>
+                <constraint firstItem="qFq-xg-55a" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YY7-Xn-2hF"/>
+                <constraint firstAttribute="bottom" secondItem="qFq-xg-55a" secondAttribute="bottom" id="ZmX-QG-T5g"/>
+                <constraint firstItem="PIk-TN-Dzh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cCH-2P-zvi"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="dRs-UE-iXS" secondAttribute="bottom" id="hvm-sB-xVT"/>
+                <constraint firstItem="kSQ-PB-OFl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="lVV-G9-vYe"/>
+                <constraint firstAttribute="bottom" secondItem="kSQ-PB-OFl" secondAttribute="bottom" id="n5a-ex-HcZ"/>
+                <constraint firstItem="qFq-xg-55a" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="sZo-OI-U9g"/>
+                <constraint firstItem="dRs-UE-iXS" firstAttribute="top" secondItem="PIk-TN-Dzh" secondAttribute="bottom" id="vQE-Uz-C9v"/>
+                <constraint firstItem="kSQ-PB-OFl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yac-vi-q1b"/>
+            </constraints>
+            <point key="canvasLocation" x="125.95419847328243" y="-11.267605633802818"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="fondo4" width="1080" height="1920"/>
+        <namedColor name="CustomColor1">
+            <color red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CustomColor2">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

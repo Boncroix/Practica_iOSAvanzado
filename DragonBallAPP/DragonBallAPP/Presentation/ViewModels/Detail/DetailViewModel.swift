@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 
 final class DetailViewModel {
@@ -17,6 +18,7 @@ final class DetailViewModel {
     private var apiProvider: ApiProvider
     private var storeDataProvider: StoreDataProvider
     var transformations: [NSMTransformations] = []
+    var locations: [NSMLocations] = []
     var hero: NSMHero
     
     //MARK: - Inits
@@ -26,14 +28,18 @@ final class DetailViewModel {
         self.apiProvider = apiProvider
         self.storeDataProvider = storeDataProvider
         self.hero = hero
+        self.addObservers()
+    }
+    
+    deinit {
+        removeObservers()
     }
     
     //MARK: Load Data
     func loadData() {
-        transformations = storeDataProvider.fetchTransformations(
-            sorting: self.sortDescriptor(ascending: true))
-        if transformations.isEmpty {
-            self.getTransformations(idHero: hero.id)
+        locations = Array(hero.heroToLocations ?? [])
+        if locations.isEmpty {
+            loadDataFromServices(id: hero.id)
         } else {
             notifyDataUpdated()
         }
@@ -45,9 +51,20 @@ final class DetailViewModel {
         }
     }
     
-    private func sortDescriptor(ascending: Bool = true) -> [NSSortDescriptor] {
-        let sort = NSSortDescriptor(keyPath: \NSMTransformations.name, ascending: ascending)
-        return [sort]
+    //MARK: - SelectTransformation
+    func transformation(indexPath: IndexPath) -> NSMTransformations? {
+        guard indexPath.row < transformations.count else {return nil }
+        return transformations[indexPath.row]
+    }
+    
+    //MARK: - SortDescriptor
+    private func sortDescriptor() {
+        transformations = Array(hero.heroToTransformations ?? [])
+        transformations.sort {
+            let numero1 = Int($0.name?.components(separatedBy: ".").first ?? "") ?? 0
+            let numero2 = Int($1.name?.components(separatedBy: ".").first ?? "") ?? 0
+            return numero1 < numero2
+        }
     }
     
     func loadDataFromServices(id: String) {
@@ -59,18 +76,20 @@ final class DetailViewModel {
         queueLoadData.async {
             self.getTransformations(idHero: id)
         }
+        group.leave()
         
         group.enter()
         queueLoadData.async {
             self.getLocation(idHero: id)
         }
+        group.leave()
         
         group.notify(queue: .main) {
             self.notifyDataUpdated()
         }
     }
     
-    //MARK: - GetHeroesApi
+    //MARK: - GetTransformationsApi
     private func getTransformations(idHero: String) {
         apiProvider.getTransformationsForHeroWith(id: idHero) { [weak self] result in
             switch result {
@@ -91,5 +110,16 @@ final class DetailViewModel {
                 print("Error loading location \(error.description)")
             }
         }
+    }
+    
+    private func addObservers() {
+        NotificationCenter.default.addObserver(forName: NSManagedObjectContext.didSaveObjectsNotification, object: nil, queue: .main) { notification in
+                self.locations = Array(self.hero.heroToLocations ?? [])
+                self.transformations = Array(self.hero.heroToTransformations ?? [])
+        }
+    }
+    
+    private func removeObservers() {
+        NotificationCenter.default.removeObserver(self)
     }
 }

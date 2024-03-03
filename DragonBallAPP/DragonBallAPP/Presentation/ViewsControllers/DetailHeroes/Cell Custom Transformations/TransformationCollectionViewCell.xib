@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,6 +17,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="342" height="177"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FkN-hI-t9I">
+                        <rect key="frame" x="0.0" y="0.0" width="342" height="177"/>
+                        <color key="backgroundColor" name="CustomColor1"/>
+                    </view>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zR3-hz-rzi">
                         <rect key="frame" x="0.0" y="0.0" width="342" height="177"/>
                         <subviews>
@@ -24,8 +29,8 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqd-eR-S8O">
                                 <rect key="frame" x="175" y="0.0" width="167" height="177"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" name="CustomColor2"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -35,8 +40,12 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="zR3-hz-rzi" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="5d6-lb-IeL"/>
+                <constraint firstItem="FkN-hI-t9I" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="BbT-5U-Bqk"/>
                 <constraint firstAttribute="bottom" secondItem="zR3-hz-rzi" secondAttribute="bottom" id="HAu-0f-f6l"/>
+                <constraint firstItem="FkN-hI-t9I" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="JVx-eX-IAn"/>
                 <constraint firstItem="zR3-hz-rzi" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="OOK-1O-h8M"/>
+                <constraint firstAttribute="trailing" secondItem="FkN-hI-t9I" secondAttribute="trailing" id="cVm-AN-LOz"/>
+                <constraint firstAttribute="bottom" secondItem="FkN-hI-t9I" secondAttribute="bottom" id="jM3-gk-RdI"/>
                 <constraint firstAttribute="trailing" secondItem="zR3-hz-rzi" secondAttribute="trailing" id="wzO-kt-3ug"/>
             </constraints>
             <size key="customSize" width="342" height="177"/>
@@ -47,4 +56,12 @@
             <point key="canvasLocation" x="326.71755725190837" y="33.450704225352112"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <namedColor name="CustomColor1">
+            <color red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CustomColor2">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

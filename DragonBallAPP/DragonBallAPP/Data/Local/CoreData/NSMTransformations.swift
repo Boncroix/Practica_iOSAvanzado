@@ -2,7 +2,7 @@
 //  NSMTransformations+CoreDataClass.swift
 //  DragonBallAPP
 //
-//  Created by Jose Bueno Cruz on 28/2/24.
+//  Created by Jose Bueno Cruz on 2/3/24.
 //
 //
 
@@ -21,7 +21,6 @@ extension NSMTransformations {
     }
 
     @NSManaged public var photo: String?
-    @NSManaged public var heroid: String?
     @NSManaged public var id: String?
     @NSManaged public var name: String?
     @NSManaged public var descrip: String?

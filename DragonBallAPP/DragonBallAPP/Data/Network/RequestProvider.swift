@@ -18,7 +18,7 @@ struct RequestProvider {
         return request
     }
     
-    func requestFor(endPoint: EndPoints, token: String, params: [String : Any]) -> URLRequest {
+    func requestFor(endPoint: EndPoints, token: String, params: [String: Any]) -> URLRequest {
         var request = self.requestFor(endPoint: endPoint)
         let jsonParameters = try? JSONSerialization.data(withJSONObject: params)
         request.httpBody = jsonParameters
