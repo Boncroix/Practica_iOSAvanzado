@@ -114,11 +114,9 @@ extension HeroesCollectionViewController {
         collectionView.dataSource = dataSource
         
         DispatchQueue.main.async {
-            var custonListHeroesData = self.viewModel.heroes
-            custonListHeroesData.removeAll { $0.name == "Quake (Daisy Johnson)"}
             var snapshot = Snapshot()
             snapshot.appendSections([0])
-            snapshot.appendItems(custonListHeroesData)
+            snapshot.appendItems(self.viewModel.heroes)
             self.dataSource?.apply(snapshot)
         }
     }

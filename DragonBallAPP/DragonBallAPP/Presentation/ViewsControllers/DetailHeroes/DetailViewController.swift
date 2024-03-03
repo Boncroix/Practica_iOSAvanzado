@@ -46,6 +46,20 @@ final class DetailViewController: UIViewController {
         viewModel.loadData()
         collectionView.delegate = self
     }
+    
+    @IBAction func changeMapType(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            mapView.mapType = .standard
+        case 1:
+            mapView.mapType = .satellite
+        case 2:
+            mapView.mapType = .hybrid
+        default:
+            break
+        }
+    }
+    
 }
 
 //MARK: - Observers
@@ -126,7 +140,7 @@ extension DetailViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard let heroAnnotation = annotation as? HeroAnnotation else {
+        guard annotation is HeroAnnotation else {
             return nil
         }
 
@@ -143,6 +157,7 @@ extension DetailViewController: UICollectionViewDelegate {
         guard let transformation = viewModel.transformation(indexPath: indexPath) else {return}
         let viewModel = DetailTransformationsViewModel(transformation: transformation)
         let nextVC = DetailTransformationsViewController(viewModel: viewModel)
+        navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 

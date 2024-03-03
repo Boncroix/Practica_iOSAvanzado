@@ -58,7 +58,9 @@ final class HeroesViewModel {
         apiProvider.getHeroesWith { [weak self] result in
             switch result {
             case .success(let heroes):
-                self?.storeDataProvider.insert(heroes: heroes)
+                var custonListHeroes = heroes
+                custonListHeroes.removeAll { $0.name == "Quake (Daisy Johnson)"}
+                self?.storeDataProvider.insert(heroes: custonListHeroes)
                 self?.notifyDataUpdated()
             case .failure(let error):
                 debugPrint("Error loading heroes \(error.description)")

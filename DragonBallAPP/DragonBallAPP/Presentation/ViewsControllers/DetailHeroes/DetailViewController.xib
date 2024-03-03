@@ -99,6 +99,9 @@
                         <segment title="Satélite"/>
                         <segment title="Híbrido"/>
                     </segments>
+                    <connections>
+                        <action selector="changeMapType:" destination="-1" eventType="valueChanged" id="cDy-pp-EoY"/>
+                    </connections>
                 </segmentedControl>
                 <view hidden="YES" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jYm-ZV-9EO" userLabel="LoadingView">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
