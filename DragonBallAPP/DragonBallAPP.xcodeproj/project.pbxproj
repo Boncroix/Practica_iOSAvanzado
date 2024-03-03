@@ -78,6 +78,7 @@
 		4297CF1F2B951EEF00D46E59 /* heroes.json in Resources */ = {isa = PBXBuildFile; fileRef = 4297CF162B946CE000D46E59 /* heroes.json */; };
 		4297CF252B95260600D46E59 /* locations.json in Resources */ = {isa = PBXBuildFile; fileRef = 4297CF242B95260600D46E59 /* locations.json */; };
 		4297CF272B95287800D46E59 /* transformations.json in Resources */ = {isa = PBXBuildFile; fileRef = 4297CF262B95287800D46E59 /* transformations.json */; };
+		4297CF292B952DCD00D46E59 /* StoreDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4297CF282B952DCD00D46E59 /* StoreDataProviderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +157,7 @@
 		4297CF192B946FF000D46E59 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
 		4297CF242B95260600D46E59 /* locations.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = locations.json; sourceTree = "<group>"; };
 		4297CF262B95287800D46E59 /* transformations.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = transformations.json; sourceTree = "<group>"; };
+		4297CF282B952DCD00D46E59 /* StoreDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataProviderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 			children = (
 				4297CF0D2B946A6600D46E59 /* Mock */,
 				4297CF172B946FCC00D46E59 /* ApiProviderTests.swift */,
+				4297CF282B952DCD00D46E59 /* StoreDataProviderTests.swift */,
 				4297CF162B946CE000D46E59 /* heroes.json */,
 				4297CF242B95260600D46E59 /* locations.json */,
 				4297CF262B95287800D46E59 /* transformations.json */,
@@ -685,6 +688,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4297CF292B952DCD00D46E59 /* StoreDataProviderTests.swift in Sources */,
 				4297CF182B946FCC00D46E59 /* ApiProviderTests.swift in Sources */,
 				4297CF1A2B946FF000D46E59 /* MockURLProtocol.swift in Sources */,
 				4297CDFE2B8F46B700D46E59 /* Model.xcdatamodeld in Sources */,
