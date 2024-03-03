@@ -157,7 +157,9 @@ extension DetailViewController: UICollectionViewDelegate {
         guard let transformation = viewModel.transformation(indexPath: indexPath) else {return}
         let viewModel = DetailTransformationsViewModel(transformation: transformation)
         let nextVC = DetailTransformationsViewController(viewModel: viewModel)
-        navigationController?.pushViewController(nextVC, animated: true)
+        let sheet = nextVC.sheetPresentationController
+        sheet?.detents = [.medium(), .large()]
+        self.present (nextVC, animated: true)
     }
 }
 
@@ -198,3 +200,8 @@ extension DetailViewController {
 }
 
 
+
+
+guard let transformation = viewModel.transformation(indexPath: indexPath) else {return}
+let viewModel = DetailTransformationsViewModel(transformation: transformation)
+let nextVC = DetailTransformationsViewController(viewModel: viewModel)
