@@ -43,6 +43,7 @@ final class DetailViewController: UIViewController {
         super.viewDidLoad()
         checkLocationAuthorizationStatus()
         setObservers()
+        configureUI()
         viewModel.loadData()
         collectionView.delegate = self
     }
@@ -71,8 +72,8 @@ extension DetailViewController {
                 self?.loadingView.isHidden = !isLoading
             case .loaded:
                 self?.loadingView.isHidden = true
-                self?.configureUI()
                 self?.setUpCollectionView()
+                self?.checkTransformations()
                 self?.updateDataInterface()
                 
             case .errorNetwork(let errorMessage):
@@ -86,11 +87,21 @@ extension DetailViewController {
 //MARK: - MapView
 extension DetailViewController: MKMapViewDelegate {
     
+    private func checkTransformations() {
+        if viewModel.transformations.isEmpty {
+            transformationsView.isHidden = true
+        }
+    }
+    
     private func configureUI() {
         nameLabel.text = viewModel.hero.name
         descriptionText.text = viewModel.hero.descrip
         mapView.delegate = self
         mapView.showsUserTrackingButton = true
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 300, height: 150)
+        collectionView.collectionViewLayout = layout
     }
     
     private func updateDataInterface() {
@@ -166,11 +177,6 @@ extension DetailViewController: UICollectionViewDelegate {
 // MARK: - setUp CollectionView
 extension DetailViewController {
     func setUpCollectionView() {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 300, height: 150)
-        collectionView.collectionViewLayout = layout
-        
         let registration = UICollectionView.CellRegistration<TransformationCollectionViewCell, NSMTransformations>(
             cellNib: UINib(
                 nibName: TransformationCollectionViewCell.identifier,
@@ -191,6 +197,7 @@ extension DetailViewController {
         collectionView.dataSource = dataSource
         
         DispatchQueue.main.async {
+            self.viewModel.sortDescriptor()
             var snapshot = Snapshot()
             snapshot.appendSections([0])
             snapshot.appendItems(self.viewModel.transformations)

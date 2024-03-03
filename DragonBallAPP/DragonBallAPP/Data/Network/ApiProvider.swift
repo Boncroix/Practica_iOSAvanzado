@@ -18,7 +18,7 @@ final class ApiProvider {
     init(session: URLSession = URLSession.shared,
          requestProvider: RequestProvider = RequestProvider(),
          secureData: SecureDataKeychainProtocol = SecureDataKeychain(),
-         storeData: StoreDataProvider = StoreDataProvider()) {
+         storeData: StoreDataProvider = StoreDataProvider.shared) {
         self.session = session
         self.requestProvider = requestProvider
         self.secureData = secureData
@@ -28,7 +28,7 @@ final class ApiProvider {
     //MARK: - Login
     func loginWith(email: String,
                    password: String,
-                   completion: @escaping (Result<Bool, NetworkError>) -> Void) {
+                   completion: @escaping (Result<String, NetworkError>) -> Void) {
         let loginString = String(format: "%@:%@", email, password)
         guard let loginData = loginString.data(using: .utf8) else {
             completion(.failure(.dataFormatting))
@@ -81,7 +81,7 @@ final class ApiProvider {
 extension ApiProvider {
     
     private func makeRequestFor(request: URLRequest,
-                        completion: @escaping (Result<Bool, NetworkError>) -> Void) {
+                        completion: @escaping (Result<String, NetworkError>) -> Void) {
 
         session.dataTask(with: request) { [weak self] data, response, error in
             guard error == nil else {
@@ -101,7 +101,7 @@ extension ApiProvider {
                 completion(.failure(.tokenFormatError))
                 return
             }
-            completion(.success(true))
+            completion(.success(token))
             self?.secureData.setToken(token: token)
         }
         .resume()

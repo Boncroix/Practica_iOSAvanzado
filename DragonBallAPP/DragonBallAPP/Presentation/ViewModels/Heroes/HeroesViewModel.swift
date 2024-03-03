@@ -20,7 +20,7 @@ final class HeroesViewModel {
     
     //MARK: - Inits
     init(apiProvider: ApiProvider = ApiProvider(), 
-         storeDataProvider: StoreDataProvider = StoreDataProvider()) {
+         storeDataProvider: StoreDataProvider = StoreDataProvider.shared) {
         self.apiProvider = apiProvider
         self.storeDataProvider = storeDataProvider
         self.addObservers()

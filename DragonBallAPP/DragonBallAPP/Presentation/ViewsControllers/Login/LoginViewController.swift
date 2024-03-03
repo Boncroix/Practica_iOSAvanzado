@@ -28,7 +28,7 @@ final class LoginViewController: UIViewController {
     //MARK: - Inits
     init(viewModel: LoginViewModel = LoginViewModel(), 
          secureData: SecureDataKeychainProtocol = SecureDataKeychain(),
-         storeDataProvider: StoreDataProvider = StoreDataProvider()) {
+         storeDataProvider: StoreDataProvider = StoreDataProvider.shared) {
         self.viewModel = viewModel
         self.secureData = secureData
         self.storeDataProvider = storeDataProvider

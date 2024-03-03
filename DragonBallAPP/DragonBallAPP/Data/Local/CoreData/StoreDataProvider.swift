@@ -15,6 +15,7 @@ enum StoreType {
 
 final class StoreDataProvider {
     
+    static var shared = StoreDataProvider()
     private let persistenContainer: NSPersistentContainer
     
     private static var model: NSManagedObjectModel = {
@@ -25,8 +26,6 @@ final class StoreDataProvider {
         }
         return model
     }()
-    
-    static var shared = StoreDataProvider()
     
     lazy var context: NSManagedObjectContext = {
         var viewContext = persistenContainer.viewContext

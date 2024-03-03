@@ -23,7 +23,7 @@ final class DetailViewModel {
     
     //MARK: - Inits
     init(apiProvider: ApiProvider = ApiProvider(),
-         storeDataProvider: StoreDataProvider = StoreDataProvider(),
+         storeDataProvider: StoreDataProvider = StoreDataProvider.shared,
          hero: NSMHero) {
         self.apiProvider = apiProvider
         self.storeDataProvider = storeDataProvider
@@ -38,7 +38,8 @@ final class DetailViewModel {
     //MARK: Load Data
     func loadData() {
         locations = Array(hero.heroToLocations ?? [])
-        if locations.isEmpty {
+        transformations = Array(hero.heroToTransformations ?? [])
+        if locations.isEmpty || transformations.isEmpty{
             loadDataFromServices(id: hero.id)
         } else {
             notifyDataUpdated()
@@ -58,7 +59,7 @@ final class DetailViewModel {
     }
     
     //MARK: - SortDescriptor
-    private func sortDescriptor() {
+    func sortDescriptor() {
         transformations = Array(hero.heroToTransformations ?? [])
         transformations.sort {
             let numero1 = Int($0.name?.components(separatedBy: ".").first ?? "") ?? 0
@@ -71,43 +72,62 @@ final class DetailViewModel {
         let queueLoadData = DispatchQueue(label: "loadData")
         
         let group = DispatchGroup()
+        var networkError: NetworkError?
         
         group.enter()
         queueLoadData.async {
-            self.getTransformations(idHero: id)
+            self.getTransformations(idHero: id) { error in
+                if let error {
+                    networkError = error
+                }
+                group.leave()
+            }
         }
-        group.leave()
         
         group.enter()
         queueLoadData.async {
-            self.getLocation(idHero: id)
+            self.getLocation(idHero: id) { error in
+                if let error {
+                    networkError = error
+                }
+                group.leave()
+            }
         }
-        group.leave()
         
         group.notify(queue: .main) {
-            self.notifyDataUpdated()
-        }
-    }
-    
-    //MARK: - GetTransformationsApi
-    private func getTransformations(idHero: String) {
-        apiProvider.getTransformationsForHeroWith(id: idHero) { [weak self] result in
-            switch result {
-            case .success(let transformations):
-                self?.storeDataProvider.insert(transformations: transformations)
-            case .failure(let error):
-                print("Error loading transformations \(error.description)")
+            if let networkError {
+                self.detailViewState?(.errorNetwork(_error: networkError.description))
+            } else {
+                self.notifyDataUpdated()
             }
         }
     }
     
-    private func getLocation(idHero: String) {
+    //MARK: - GetTransformationsApi
+    private func getTransformations(idHero: String,
+                                    completion: @escaping ((NetworkError?) -> Void)) {
+        apiProvider.getTransformationsForHeroWith(id: idHero) { [weak self] result in
+            switch result {
+            case .success(let transformations):
+                self?.storeDataProvider.insert(transformations: transformations)
+                completion(nil)
+            case .failure(let error):
+                print("Error loading transformations \(error.description)")
+                completion(error)
+            }
+        }
+    }
+    
+    private func getLocation(idHero: String,
+                             completion: @escaping ((NetworkError?) -> Void)) {
         apiProvider.getLocationsForHeroWith(id: idHero) { [weak self] result in
             switch result {
             case .success(let locations):
                 self?.storeDataProvider.insert(locations: locations)
+                completion(nil)
             case .failure(let error):
                 print("Error loading location \(error.description)")
+                completion(error)
             }
         }
     }
