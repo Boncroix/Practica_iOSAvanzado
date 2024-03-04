@@ -14,6 +14,7 @@ final class ApiProviderTests: XCTestCase {
     private var sut: ApiProvider!
     private var expectedToken: String = ""
     private var idHero: String = ""
+    private let secureData = MockSegureDataUserDefault()
 
     //MARK: SetUp
     override func setUpWithError() throws {
@@ -21,14 +22,15 @@ final class ApiProviderTests: XCTestCase {
         let configuration = URLSessionConfiguration.ephemeral
         configuration.protocolClasses = [MockURLProtocol.self]
         let session = URLSession(configuration: configuration)
-        sut = ApiProvider(session: session)
-        expectedToken = "expectedToken"
+        sut = ApiProvider(session: session, secureData: secureData)
+        setToken()
         idHero = "D88BE50B-913D-4EA8-AC42-04D3AF1434E3"
     }
 
     // MARK: - TearDown
     override func tearDown() {
         super.tearDown()
+        sut = nil
         MockURLProtocol.error = nil
         MockURLProtocol.handler = nil
         expectedToken = ""
@@ -92,7 +94,7 @@ final class ApiProviderTests: XCTestCase {
         sut.loginWith(email: user, password: password) { result in
             expectation.fulfill()
             switch result {
-            case .success(let token):
+            case .success(_):
                 XCTFail("expected fail")
             case .failure(let error):
                 XCTAssertEqual(error.description, "Error code 401")
@@ -108,10 +110,14 @@ final class ApiProviderTests: XCTestCase {
                                      name: "Maestro Roshi",
                                      photo: "https://cdn.alfabetajuega.com/alfabetajuega/2020/06/Roshi.jpg?width=300",
                                      description: "Es un maestro de artes marciales que tiene una escuela, donde entrenará a Goku y Krilin para los Torneos de Artes Marciales.")
-        
         MockURLProtocol.handler = { request in
             XCTAssertEqual(request.httpMethod, "POST")
             let url = try XCTUnwrap(request.url)
+            
+            let expectedAuthorization = "Bearer \(self.expectedToken)"
+            let authorization = request.value(forHTTPHeaderField: "Authorization")
+            XCTAssertEqual(authorization, expectedAuthorization)
+            
             XCTAssertEqual(url, self.host.appendingPathComponent("/api/heros/all"))
             let mockUrl = try XCTUnwrap(Bundle(for: type(of: self)).url(forResource: "heroes", withExtension: "json"))
             let data = try Data(contentsOf: mockUrl)
@@ -140,13 +146,7 @@ final class ApiProviderTests: XCTestCase {
     
     func test_getHeroesFail() {
         // Given
-        let expectedHero = Hero.init(id: "14BB8E98-6586-4EA7-B4D7-35D6A63F5AA3",
-                                     name: "Maestro Roshi",
-                                     photo: "https://cdn.alfabetajuega.com/alfabetajuega/2020/06/Roshi.jpg?width=300",
-                                     description: "Es un maestro de artes marciales que tiene una escuela, donde entrenará a Goku y Krilin para los Torneos de Artes Marciales.")
-        
         MockURLProtocol.handler = { request in
-            XCTAssertEqual(request.httpMethod, "POST")
             let url = try XCTUnwrap(request.url)
             XCTAssertEqual(url, self.host.appendingPathComponent("/api/heros/all"))
             let mockUrl = try XCTUnwrap(Bundle(for: type(of: self)).url(forResource: "heroes", withExtension: "json"))
@@ -160,7 +160,7 @@ final class ApiProviderTests: XCTestCase {
         sut.getHeroesWith { result in
             expectation.fulfill()
             switch result {
-            case .success(let token):
+            case .success(_):
                 XCTFail("expected fail")
             case .failure(let error):
                 XCTAssertEqual(error.description, "Error code 401")
@@ -180,6 +180,11 @@ final class ApiProviderTests: XCTestCase {
         
         MockURLProtocol.handler = { request in
             XCTAssertEqual(request.httpMethod, "POST")
+            
+            let expectedAuthorization = "Bearer \(self.expectedToken)"
+            let authorization = request.value(forHTTPHeaderField: "Authorization")
+            XCTAssertEqual(authorization, expectedAuthorization)
+            
             let url = try XCTUnwrap(request.url)
             XCTAssertEqual(url, self.host.appendingPathComponent("/api/heros/tranformations"))
             let mockUrl = try XCTUnwrap(Bundle(for: type(of: self)).url(forResource: "transformations", withExtension: "json"))
@@ -209,14 +214,7 @@ final class ApiProviderTests: XCTestCase {
     
     func test_getTransformationsFail() {
         // Given
-        let expectedTransformation = Transformation.init(photo: "https://areajugones.sport.es/wp-content/uploads/2020/03/Gorilin.jpg.webp",
-                                                         hero: nil,
-                                                         id: "616ADA79-EF94-41BE-B4ED-3A44A3F3E2B7",
-                                                         name: "4. Gorilin",
-                                                         description: "Es la fusión de  Krillin y Kid Goku que apareció por primera vez en Dragon Ball Fusions.")
-        
         MockURLProtocol.handler = { request in
-            XCTAssertEqual(request.httpMethod, "POST")
             let url = try XCTUnwrap(request.url)
             XCTAssertEqual(url, self.host.appendingPathComponent("/api/heros/tranformations"))
             let mockUrl = try XCTUnwrap(Bundle(for: type(of: self)).url(forResource: "transformations", withExtension: "json"))
@@ -230,7 +228,7 @@ final class ApiProviderTests: XCTestCase {
         sut.getTransformationsForHeroWith(id: idHero) { result in
             expectation.fulfill()
             switch result {
-            case .success(let token):
+            case .success(_):
                 XCTFail("expected fail")
             case .failure(let error):
                 XCTAssertEqual(error.description, "Error code 401")
@@ -250,6 +248,11 @@ final class ApiProviderTests: XCTestCase {
         
         MockURLProtocol.handler = { request in
             XCTAssertEqual(request.httpMethod, "POST")
+            
+            let expectedAuthorization = "Bearer \(self.expectedToken)"
+            let authorization = request.value(forHTTPHeaderField: "Authorization")
+            XCTAssertEqual(authorization, expectedAuthorization)
+            
             let url = try XCTUnwrap(request.url)
             XCTAssertEqual(url, self.host.appendingPathComponent("/api/heros/locations"))
             let mockUrl = try XCTUnwrap(Bundle(for: type(of: self)).url(forResource: "locations", withExtension: "json"))
@@ -279,14 +282,7 @@ final class ApiProviderTests: XCTestCase {
     
     func test_getLocationsFail() {
         // Given
-        let expectedLocation = Location.init(id: "B93A51C8-C92C-44AE-B1D1-9AFE9BA0BCCC",
-                                             latitude: "35.71867899343361",
-                                             longitude: "139.8202084625344",
-                                             date: "2022-02-20T00:00:00Z",
-                                             hero: nil)
-        
         MockURLProtocol.handler = { request in
-            XCTAssertEqual(request.httpMethod, "POST")
             let url = try XCTUnwrap(request.url)
             XCTAssertEqual(url, self.host.appendingPathComponent("/api/heros/locations"))
             let mockUrl = try XCTUnwrap(Bundle(for: type(of: self)).url(forResource: "locations", withExtension: "json"))
@@ -300,12 +296,16 @@ final class ApiProviderTests: XCTestCase {
         sut.getLocationsForHeroWith(id: idHero) { result in
             expectation.fulfill()
             switch result {
-            case .success(let token):
+            case .success(_):
                 XCTFail("expected fail")
             case .failure(let error):
                 XCTAssertEqual(error.description, "Error code 401")
             }
         }
         wait(for: [expectation], timeout: 0.2)
+    }
+    
+    private func setToken() {
+        MockSegureDataUserDefault().setToken(token: self.expectedToken)
     }
 }

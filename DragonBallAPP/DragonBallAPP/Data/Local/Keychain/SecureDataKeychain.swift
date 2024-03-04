@@ -17,8 +17,8 @@ protocol SecureDataKeychainProtocol {
 
 struct SecureDataKeychain: SecureDataKeychainProtocol {
     
-    private let keychain = KeychainSwift()
-    private let keyToken = "keyToken"
+    let keychain = KeychainSwift()
+    let keyToken = "keyToken"
     
     func setToken(token: String) {
         keychain.set(token, forKey: keyToken)
@@ -33,20 +33,4 @@ struct SecureDataKeychain: SecureDataKeychainProtocol {
     }
 }
 
-struct SecureDataUserDefaults: SecureDataKeychainProtocol {
-    
-    private let userDefaults = UserDefaults.standard
-    private let keyToken = "keyToken"
-    
-    func setToken(token: String) {
-        userDefaults.setValue(token, forKey: keyToken)
-    }
-    
-    func getToken() -> String? {
-        userDefaults.value(forKey: keyToken) as? String
-    }
-    
-    func deleteToken() {
-        userDefaults.removeObject(forKey: keyToken)
-    }
-}
+
